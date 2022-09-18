@@ -24,4 +24,6 @@ or move the robot by a set of motion(currently only able to sit and stand) using
 ```
 ros2 run spyderbot teleop.py
 ```
-
+![alt text](https://github.com/MickySukmana/spyderbot/blob/main/img/stand.gif?raw=true)
+![alt text](https://github.com/MickySukmana/spyderbot/blob/main/img/sit.gif?raw=true)
+![alt text](https://github.com/MickySukmana/spyderbot/blob/main/img/lr.png?raw=true)
