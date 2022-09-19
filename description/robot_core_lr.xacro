@@ -8,10 +8,12 @@
 	<xacro:property name="mu1" value="550"/>
 	<xacro:property name="mu2" value="550"/>
 	<xacro:property name="velocity" value="1"/>
-	<xacro:property name="effort" value="30"/>
+	<xacro:property name="effort" value="10"/>
 	<xacro:property name="base_mass" value="10"/>
 	<xacro:property name="leg_mass" value="5"/>
-	<xacro:property name="fdir" value="0 1 0"/>
+	<xacro:property name="leg_mass3" value="5"/>
+	<xacro:property name="fdir" value="1 0 0"/>
+
 	<link name="base_link">
 
 	</link>
@@ -47,6 +49,9 @@
 		<material>Gazebo/Red</material>
 		<mu1 value="${mu1}"/>
 		<mu2 value="${mu2}"/>
+		<fdir1 value="${fdir}"/>
+		<maxVel>1.0</maxVel>
+    	<minDepth>0.01</minDepth>
 	</gazebo>
 	
 	<!-- LEFT_LEG1_AX1 -->
@@ -75,7 +80,7 @@
 		</collision>
 		
 		<xacro:inertial_box mass="${leg_mass}" x="0.04" y="0.04" z="0.1">
-			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<origin xyz="0 0 -0.03" rpy="0 0 0"/>
 		</xacro:inertial_box>
 	</link>
 
@@ -83,6 +88,9 @@
 		<material>Gazebo/Black</material>
 		<mu1 value="${mu1}"/>
 		<mu2 value="${mu2}"/>
+		<fdir1 value="${fdir}"/>
+		<maxVel>1.0</maxVel>
+    	<minDepth>0.01</minDepth>
 	</gazebo>
 
 	<!-- LEFT_LEG1_AX2 -->
@@ -111,7 +119,7 @@
 		</collision>
 
 		<xacro:inertial_box mass="${leg_mass}" x="0.04" y="0.04" z="0.4">
-			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<origin xyz="0 0 0.18" rpy="0 0 0"/>
 		</xacro:inertial_box>
 	</link>
 
@@ -119,6 +127,9 @@
 		<material>Gazebo/Red</material>
 		<mu1 value="${mu1}"/>
 		<mu2 value="${mu2}"/>
+		<fdir1 value="${fdir}"/>
+		<maxVel>1.0</maxVel>
+    	<minDepth>0.01</minDepth>
 	</gazebo>
 
 	<!-- LEFT_LEG1_AX3 -->
@@ -146,23 +157,8 @@
 			</geometry>
 		</collision>
 
-		<!-- added pads -->
-		<visual>
-			<origin xyz="0 -0.04 0.38"/>
-			<geometry>
-				<sphere radius="0.04"/>
-			</geometry>
-		</visual>
-
-		<collision>
-			<origin xyz="0 -0.04 0.38"/>
-			<geometry>
-				<sphere radius="0.04"/>
-			</geometry>
-		</collision>
-		
-		<xacro:inertial_box mass="${leg_mass}" x="0.04" y="0.04" z="0.4">
-			<origin xyz="0 0 0" rpy="0 0 0"/>
+		<xacro:inertial_box mass="${leg_mass3}" x="0.04" y="0.04" z="0.4">
+			<origin xyz="0 -0.04 0.18" rpy="0 0 0"/>
 		</xacro:inertial_box>
 	</link>
 
@@ -171,7 +167,11 @@
 		<mu1 value="${mu1}"/>
 		<mu2 value="${mu2}"/>
 		<fdir1 value="${fdir}"/>
-	</gazebo>	
+		<maxVel>1.0</maxVel>
+    	<minDepth>0.01</minDepth>
+		<kp>1000000.0</kp>
+		<kd>100.0</kd>
+	</gazebo>
 
 	<!-- LEFT_LEG2_AX1 -->
 	<joint name="lleg2_ax1_joint" type="revolute">
@@ -199,7 +199,7 @@
 		</collision>
 
 		<xacro:inertial_box mass="${leg_mass}" x="0.04" y="0.04" z="0.1">
-			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<origin xyz="0 0 -0.03" rpy="0 0 0"/>
 		</xacro:inertial_box>
 	</link>
 
@@ -207,6 +207,9 @@
 		<material>Gazebo/Black</material>
 		<mu1 value="${mu1}"/>
 		<mu2 value="${mu2}"/>
+		<fdir1 value="${fdir}"/>
+		<maxVel>1.0</maxVel>
+    	<minDepth>0.01</minDepth>
 	</gazebo>
 	
 	<!-- LEFT_LEG2_AX2 -->
@@ -235,7 +238,7 @@
 		</collision>
 		
 		<xacro:inertial_box mass="${leg_mass}" x="0.04" y="0.04" z="0.4">
-			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<origin xyz="0 0 0.18" rpy="0 0 0"/>
 		</xacro:inertial_box>
 	</link>
 
@@ -243,6 +246,9 @@
 		<material>Gazebo/Red</material>
 		<mu1 value="${mu1}"/>
 		<mu2 value="${mu2}"/>
+		<fdir1 value="${fdir}"/>
+		<maxVel>1.0</maxVel>
+    	<minDepth>0.01</minDepth>
 	</gazebo>
 
 	<!-- LEFT_LEG2_AX3 -->
@@ -270,7 +276,7 @@
 			</geometry>
 		</collision>
 
-		<!-- added pads -->
+		<!-- added pads 
 		<visual>
 			<origin xyz="0 -0.04 0.38"/>
 			<geometry>
@@ -284,9 +290,9 @@
 				<sphere radius="0.04"/>
 			</geometry>
 		</collision>	
-		
-		<xacro:inertial_box mass="${leg_mass}" x="0.04" y="0.04" z="0.4">
-			<origin xyz="0 0 0" rpy="0 0 0"/>
+		-->
+		<xacro:inertial_box mass="${leg_mass3}" x="0.04" y="0.04" z="0.4">
+			<origin xyz="0 -0.04 0.18" rpy="0 0 0"/>
 		</xacro:inertial_box>
 	</link>
 
@@ -295,6 +301,10 @@
 		<mu1 value="${mu1}"/>
 		<mu2 value="${mu2}"/>
 		<fdir1 value="${fdir}"/>
+		<maxVel>1.0</maxVel>
+    	<minDepth>0.01</minDepth>
+		<kp>1000000.0</kp>
+		<kd>100.0</kd>
 	</gazebo>
 	
 	<!-- RIGHT_LEG1_AX1 -->
@@ -323,7 +333,7 @@
 		</collision>
 		
 		<xacro:inertial_box mass="${leg_mass}" x="0.04" y="0.04" z="0.1">
-			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<origin xyz="0 0 -0.03" rpy="0 0 0"/>
 		</xacro:inertial_box>
 	</link>
 
@@ -331,6 +341,9 @@
 		<material>Gazebo/Black</material>
 		<mu1 value="${mu1}"/>
 		<mu2 value="${mu2}"/>
+		<fdir1 value="${fdir}"/>
+		<maxVel>1.0</maxVel>
+    	<minDepth>0.01</minDepth>
 	</gazebo>	
 
 	<!-- RIGHT_LEG1_AX2 -->
@@ -359,7 +372,7 @@
 		</collision>
 
 		<xacro:inertial_box mass="${leg_mass}" x="0.04" y="0.04" z="0.4">
-			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<origin xyz="0 0 0.18" rpy="0 0 0"/>
 		</xacro:inertial_box>
 	</link>
 
@@ -367,6 +380,9 @@
 		<material>Gazebo/Red</material>
 		<mu1 value="${mu1}"/>
 		<mu2 value="${mu2}"/>
+		<fdir1 value="${fdir}"/>
+		<maxVel>1.0</maxVel>
+    	<minDepth>0.01</minDepth>
 	</gazebo>
 
 	<!-- RIGHT_LEG1_AX3 -->
@@ -394,7 +410,7 @@
 			</geometry>
 		</collision>
 		
-		<!-- added pads -->
+		<!-- added pads 
 		<visual>
 			<origin xyz="0 -0.04 0.38"/>
 			<geometry>
@@ -408,9 +424,9 @@
 				<sphere radius="0.04"/>
 			</geometry>
 		</collision>
-		
-		<xacro:inertial_box mass="${leg_mass}" x="0.04" y="0.04" z="0.4">
-			<origin xyz="0 0 0" rpy="0 0 0"/>
+		-->
+		<xacro:inertial_box mass="${leg_mass3}" x="0.04" y="0.04" z="0.4">
+			<origin xyz="0 -0.04 0.18" rpy="0 0 0"/>
 		</xacro:inertial_box>
 	</link>
 
@@ -419,6 +435,10 @@
 		<mu1 value="${mu1}"/>
 		<mu2 value="${mu2}"/>
 		<fdir1 value="${fdir}"/>
+		<maxVel>1.0</maxVel>
+    	<minDepth>0.01</minDepth>
+		<kp>1000000.0</kp>
+		<kd>100.0</kd>
 	</gazebo>
 
 	<!-- RIGHT_LEG2_AX1 -->
@@ -447,7 +467,7 @@
 		</collision>
 
 		<xacro:inertial_box mass="${leg_mass}" x="0.04" y="0.04" z="0.1">
-			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<origin xyz="0 0 -0.03" rpy="0 0 0"/>
 		</xacro:inertial_box>
 	</link>
 	
@@ -455,6 +475,9 @@
 		<material>Gazebo/Black</material>
 		<mu1 value="${mu1}"/>
 		<mu2 value="${mu2}"/>
+		<fdir1 value="${fdir}"/>
+		<maxVel>1.0</maxVel>
+    	<minDepth>0.01</minDepth>
 	</gazebo>
 
 	<!-- RIGHT_LEG2_AX2 -->
@@ -483,7 +506,7 @@
 		</collision>
 
 		<xacro:inertial_box mass="${leg_mass}" x="0.04" y="0.04" z="0.4">
-			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<origin xyz="0 0 0.18" rpy="0 0 0"/>
 		</xacro:inertial_box>
 	</link>
 
@@ -491,6 +514,9 @@
 		<material>Gazebo/Red</material>
 		<mu1 value="${mu1}"/>
 		<mu2 value="${mu2}"/>
+		<fdir1 value="${fdir}"/>
+		<maxVel>1.0</maxVel>
+    	<minDepth>0.01</minDepth>
 	</gazebo>
 
 	<!-- RIGHT_LEG2_AX3 -->
@@ -518,7 +544,7 @@
 			</geometry>
 		</collision>
 
-		<!-- added pads -->
+		<!-- added pads 
 		<visual>
 			<origin xyz="0 -0.04 0.38"/>
 			<geometry>
@@ -532,9 +558,9 @@
 				<sphere radius="0.04"/>
 			</geometry>
 		</collision>
-		
-		<xacro:inertial_box mass="${leg_mass}" x="0.04" y="0.04" z="0.4">
-			<origin xyz="0 0 0" rpy="0 0 0"/>
+		-->
+		<xacro:inertial_box mass="${leg_mass3}" x="0.04" y="0.04" z="0.4">
+			<origin xyz="0 -0.04 0.18" rpy="0 0 0"/>
 		</xacro:inertial_box>
 	</link>
 	
@@ -543,6 +569,10 @@
 		<mu1 value="${mu1}"/>
 		<mu2 value="${mu2}"/>
 		<fdir1 value="${fdir}"/>
+		<maxVel>1.0</maxVel>
+    	<minDepth>0.01</minDepth>
+		<kp>1000000.0</kp>
+ 		<kd>100.0</kd>
 	</gazebo>
 
 	<ros2_control name="GazeboSystem" type="system">

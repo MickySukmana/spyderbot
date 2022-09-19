@@ -46,76 +46,111 @@ def on_press(key):
             print("forward")
             rclpy.init()
             action_client=movement.SpyderActionClient()
-            l1ax1, l1ax2, l1ax3 = ik.calc(50, 50, 20)
-            l2ax1, l2ax2, l2ax3 = ik.calc(40, 40, 20)
-            r1ax1, r1ax2, r1ax3 = ik.calc(40, 40, 20)
-            r2ax1, r2ax2, r2ax3 = ik.calc(40, 40, 20)
-            future = action_client.send_goal(l1ax1, l1ax2, l1ax3, 
-                                             l2ax1, l2ax2, l2ax3, 
-                                             r1ax1, r1ax2, r1ax3, 
-                                             r2ax1, r2ax2, r2ax3, 0.1)
-            rclpy.spin(action_client)
-            
-            rclpy.init()
-            action_client=movement.SpyderActionClient()
-            l1ax1, l1ax2, l1ax3 = ik.calc(50, 50, 20)
-            l2ax1, l2ax2, l2ax3 = ik.calc(40, 40, 20)
-            r1ax1, r1ax2, r1ax3 = ik.calc(40, 40, 20)
+            l1ax1, l1ax2, l1ax3 = ik.calc(30, 30, 20)
+            l2ax1, l2ax2, l2ax3 = ik.calc(30, 40, 5)
+            r1ax1, r1ax2, r1ax3 = ik.calc(30, 30, 20)
             r2ax1, r2ax2, r2ax3 = ik.calc(30, 30, 20)
             future = action_client.send_goal(l1ax1, l1ax2, l1ax3, 
                                              l2ax1, l2ax2, l2ax3, 
                                              r1ax1, r1ax2, r1ax3, 
-                                             r2ax1, r2ax2, r2ax3, 0.1)
-            rclpy.spin(action_client)
-                        
-            rclpy.init()
-            action_client=movement.SpyderActionClient()
-            l1ax1, l1ax2, l1ax3 = ik.calc(50, 50, 20)
-            l2ax1, l2ax2, l2ax3 = ik.calc(40, 40, 20)
-            r1ax1, r1ax2, r1ax3 = ik.calc(50, 50, 20)
-            r2ax1, r2ax2, r2ax3 = ik.calc(30, 30, 20)
-            future = action_client.send_goal(l1ax1, l1ax2, l1ax3, 
-                                             l2ax1, l2ax2, l2ax3, 
-                                             r1ax1, r1ax2, r1ax3, 
-                                             r2ax1, r2ax2, r2ax3, 0.1)
-            rclpy.spin(action_client)
-                       
-            rclpy.init()
-            action_client=movement.SpyderActionClient()
-            l1ax1, l1ax2, l1ax3 = ik.calc(50, 50, 20)
-            l2ax1, l2ax2, l2ax3 = ik.calc(30, 30, 20)
-            r1ax1, r1ax2, r1ax3 = ik.calc(50, 50, 20)
-            r2ax1, r2ax2, r2ax3 = ik.calc(30, 30, 20)
-            future = action_client.send_goal(l1ax1, l1ax2, l1ax3, 
-                                             l2ax1, l2ax2, l2ax3, 
-                                             r1ax1, r1ax2, r1ax3, 
-                                             r2ax1, r2ax2, r2ax3, 0.1)
+                                             r2ax1, r2ax2, r2ax3, 0.5)
             rclpy.spin(action_client)
 
             rclpy.init()
             action_client=movement.SpyderActionClient()
-            l1ax1, l1ax2, l1ax3 = ik.calc(50, 50, 20)
-            l2ax1, l2ax2, l2ax3 = ik.calc(40, 40, 30)
-            r1ax1, r1ax2, r1ax3 = ik.calc(50, 50, 20)
-            r2ax1, r2ax2, r2ax3 = ik.calc(40, 40, 30)
-            future = action_client.send_goal(l1ax1, l1ax2, l1ax3, 
-                                             l2ax1, l2ax2, l2ax3, 
-                                             r1ax1, r1ax2, r1ax3, 
-                                             r2ax1, r2ax2, r2ax3, 0.1)
-            rclpy.spin(action_client)
-            """           
-            rclpy.init()
-            action_client=movement.SpyderActionClient()
-            l1ax1, l1ax2, l1ax3 = ik.calc(50, 50, 20)
-            l2ax1, l2ax2, l2ax3 = ik.calc(30, 30, 20)
-            r1ax1, r1ax2, r1ax3 = ik.calc(50, 50, 20)
+            l1ax1, l1ax2, l1ax3 = ik.calc(30, 30, 20)
+            l2ax1, l2ax2, l2ax3 = ik.calc(30, 40, 20)
+            r1ax1, r1ax2, r1ax3 = ik.calc(30, 30, 20)
             r2ax1, r2ax2, r2ax3 = ik.calc(30, 30, 20)
             future = action_client.send_goal(l1ax1, l1ax2, l1ax3, 
                                              l2ax1, l2ax2, l2ax3, 
                                              r1ax1, r1ax2, r1ax3, 
-                                             r2ax1, r2ax2, r2ax3, 0.1)
+                                             r2ax1, r2ax2, r2ax3, 0.5)
             rclpy.spin(action_client)
-            """
+
+            rclpy.init()
+            action_client=movement.SpyderActionClient()
+            l1ax1, l1ax2, l1ax3 = ik.calc(30, 30, 20)
+            l2ax1, l2ax2, l2ax3 = ik.calc(30, 40, 20)
+            r1ax1, r1ax2, r1ax3 = ik.calc(30, 20, 5)
+            r2ax1, r2ax2, r2ax3 = ik.calc(30, 30, 20)
+            future = action_client.send_goal(l1ax1, l1ax2, l1ax3, 
+                                             l2ax1, l2ax2, l2ax3, 
+                                             r1ax1, r1ax2, r1ax3, 
+                                             r2ax1, r2ax2, r2ax3, 0.5)
+            rclpy.spin(action_client)
+
+            rclpy.init()
+            action_client=movement.SpyderActionClient()
+            l1ax1, l1ax2, l1ax3 = ik.calc(30, 30, 20)
+            l2ax1, l2ax2, l2ax3 = ik.calc(30, 40, 20)
+            r1ax1, r1ax2, r1ax3 = ik.calc(30, 20, 20)
+            r2ax1, r2ax2, r2ax3 = ik.calc(30, 30, 20)
+            future = action_client.send_goal(l1ax1, l1ax2, l1ax3, 
+                                             l2ax1, l2ax2, l2ax3, 
+                                             r1ax1, r1ax2, r1ax3, 
+                                             r2ax1, r2ax2, r2ax3, 0.5)
+            rclpy.spin(action_client)
+
+            rclpy.init()
+            action_client=movement.SpyderActionClient()
+            l1ax1, l1ax2, l1ax3 = ik.calc(30, 30, 20)
+            l2ax1, l2ax2, l2ax3 = ik.calc(30, 40, 20)
+            r1ax1, r1ax2, r1ax3 = ik.calc(30, 20, 20)
+            r2ax1, r2ax2, r2ax3 = ik.calc(30, 40, 5)
+            future = action_client.send_goal(l1ax1, l1ax2, l1ax3, 
+                                             l2ax1, l2ax2, l2ax3, 
+                                             r1ax1, r1ax2, r1ax3, 
+                                             r2ax1, r2ax2, r2ax3, 0.5)
+            rclpy.spin(action_client)
+
+            rclpy.init()
+            action_client=movement.SpyderActionClient()
+            l1ax1, l1ax2, l1ax3 = ik.calc(30, 30, 20)
+            l2ax1, l2ax2, l2ax3 = ik.calc(30, 40, 20)
+            r1ax1, r1ax2, r1ax3 = ik.calc(30, 20, 20)
+            r2ax1, r2ax2, r2ax3 = ik.calc(30, 40, 20)
+            future = action_client.send_goal(l1ax1, l1ax2, l1ax3, 
+                                             l2ax1, l2ax2, l2ax3, 
+                                             r1ax1, r1ax2, r1ax3, 
+                                             r2ax1, r2ax2, r2ax3, 0.5)
+            rclpy.spin(action_client)
+
+            rclpy.init()
+            action_client=movement.SpyderActionClient()
+            l1ax1, l1ax2, l1ax3 = ik.calc(30, 20, 5)
+            l2ax1, l2ax2, l2ax3 = ik.calc(30, 40, 20)
+            r1ax1, r1ax2, r1ax3 = ik.calc(30, 20, 20)
+            r2ax1, r2ax2, r2ax3 = ik.calc(30, 40, 20)
+            future = action_client.send_goal(l1ax1, l1ax2, l1ax3, 
+                                             l2ax1, l2ax2, l2ax3, 
+                                             r1ax1, r1ax2, r1ax3, 
+                                             r2ax1, r2ax2, r2ax3, 0.5)
+            rclpy.spin(action_client)
+
+            rclpy.init()
+            action_client=movement.SpyderActionClient()
+            l1ax1, l1ax2, l1ax3 = ik.calc(30, 20, 20)
+            l2ax1, l2ax2, l2ax3 = ik.calc(30, 40, 20)
+            r1ax1, r1ax2, r1ax3 = ik.calc(30, 20, 20)
+            r2ax1, r2ax2, r2ax3 = ik.calc(30, 40, 20)
+            future = action_client.send_goal(l1ax1, l1ax2, l1ax3, 
+                                             l2ax1, l2ax2, l2ax3, 
+                                             r1ax1, r1ax2, r1ax3, 
+                                             r2ax1, r2ax2, r2ax3, 0.5)
+            rclpy.spin(action_client)
+
+            rclpy.init()
+            action_client=movement.SpyderActionClient()
+            l1ax1, l1ax2, l1ax3 = ik.calc(30, 30, 20)
+            l2ax1, l2ax2, l2ax3 = ik.calc(30, 30, 20)
+            r1ax1, r1ax2, r1ax3 = ik.calc(30, 30, 20)
+            r2ax1, r2ax2, r2ax3 = ik.calc(30, 30, 20)
+            future = action_client.send_goal(l1ax1, l1ax2, l1ax3, 
+                                             l2ax1, l2ax2, l2ax3, 
+                                             r1ax1, r1ax2, r1ax3, 
+                                             r2ax1, r2ax2, r2ax3, 0.5)
+            rclpy.spin(action_client)
         if(k == 's'):
             print("backward")
         if(k == 'a'):
@@ -141,7 +176,7 @@ def on_release(key):
 
             rclpy.init()
             action_client=movement.SpyderActionClient()
-            ax1, ax2, ax3 = ik.calc(40, 40, -20)
+            ax1, ax2, ax3 = ik.calc(30, 30, -20)
             future = action_client.send_goal(ax1, ax2, ax3, 
                                              ax1, ax2, ax3, 
                                              ax1, ax2, ax3, 
@@ -150,7 +185,7 @@ def on_release(key):
 
             rclpy.init()
             action_client=movement.SpyderActionClient()
-            ax1, ax2, ax3 = ik.calc(40, 40, 20)
+            ax1, ax2, ax3 = ik.calc(30, 30, 20)
             future = action_client.send_goal(ax1, ax2, ax3, 
                                              ax1, ax2, ax3, 
                                              ax1, ax2, ax3, 
@@ -180,4 +215,4 @@ lis.start()
 
 while True:
     signal(SIGINT, handler)    
-    sleep(0.001)
+    #sleep(0.001)
