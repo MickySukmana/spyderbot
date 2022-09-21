@@ -34,12 +34,12 @@ install(
 )
 
 install(
-  PROGRAMS src/teleop.py
+  PROGRAMS src/walk.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
 install(
-  PROGRAMS src/movement.py
+  PROGRAMS src/control.py
   DESTINATION lib/${PROJECT_NAME}
 )
 

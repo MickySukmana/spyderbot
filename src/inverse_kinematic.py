@@ -5,7 +5,8 @@ class inverse_kinematic:
 		self.l1 = _l1
 		self.l2 = _l2
 
-	def calc(self, x, y, z):
+	def calc(self, x, y, z):		
+
 		l1 = self.l1
 		l2 = self.l2
 
@@ -23,9 +24,6 @@ class inverse_kinematic:
 		c = np.arctan2(z, r)
 
 		theta2 = c - b
-		
-		print(np.rad2deg(theta1))
-		print(np.rad2deg(theta2))
-		print(np.rad2deg(theta3))
-		
-		return theta1, theta2, theta3
+		angle = [theta1, theta2, theta3]
+
+		return angle
