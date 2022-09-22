@@ -1,0 +1,742 @@
+<?xml version="1.0"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="4.8572E-17 -1.5266E-16 0.0084941"
+        rpy="0 0 0" />
+      <mass
+        value="0.060284" />
+      <inertia
+        ixx="1.7074E-05"
+        ixy="9.3954E-22"
+        ixz="1.4561E-22"
+        iyy="1.5241E-05"
+        iyz="1.7946E-21"
+        izz="1.7946E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spyderbot/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spyderbot/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="fr1_link">
+    <inertial>
+      <origin
+        xyz="0.014906 0.0026628 0.0097343"
+        rpy="0 0 0" />
+      <mass
+        value="0.021948" />
+      <inertia
+        ixx="2.1293E-06"
+        ixy="-7.3567E-08"
+        ixz="-1.2618E-07"
+        iyy="2.6849E-06"
+        iyz="-2.8054E-07"
+        izz="3.112E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spyderbot/meshes/fr1_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spyderbot/meshes/fr1_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="fr1_joint"
+    type="revolute">
+    <origin
+      xyz="0.021666 0.021398 0.00925"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="fr1_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="${-pi/2}"
+      upper="${pi/2}"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="fr2_link">
+    <inertial>
+      <origin
+        xyz="-0.040026 -0.00079036 0.0014479"
+        rpy="0 0 0" />
+      <mass
+        value="0.0045124" />
+      <inertia
+        ixx="5.1688E-08"
+        ixy="-5.6395E-08"
+        ixz="-1.0912E-10"
+        iyy="2.9064E-06"
+        iyz="-1.4662E-12"
+        izz="2.9369E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spyderbot/meshes/fr2_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spyderbot/meshes/fr2_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="fr2_joint"
+    type="revolute">
+    <origin
+      xyz="0.021474 0.022026 0.00725"
+      rpy="-1.5708 0 3.1416" />
+    <parent
+      link="fr1_link" />
+    <child
+      link="fr2_link" />
+    <axis
+      xyz="-0.0011869 0 1" />
+    <limit
+      lower="${-pi/2}"
+      upper="${pi/2}"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="fr3_link">
+    <inertial>
+      <origin
+        xyz="-0.0075243 0.00070863 0.0036523"
+        rpy="0 0 0" />
+      <mass
+        value="0.0033751" />
+      <inertia
+        ixx="3.166E-08"
+        ixy="5.4665E-08"
+        ixz="5.6243E-09"
+        iyy="2.5239E-06"
+        iyz="-7.4546E-10"
+        izz="2.5382E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spyderbot/meshes/fr3_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spyderbot/meshes/fr3_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="fr3_joint"
+    type="revolute">
+    <origin
+      xyz="-0.079991 -0.0015795 0.0059051"
+      rpy="0 0 0" />
+    <parent
+      link="fr2_link" />
+    <child
+      link="fr3_link" />
+    <axis
+      xyz="-0.0011869 0 1" />
+    <limit
+      lower="${-pi}"
+      upper="${pi}"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="fl1_link">
+    <inertial>
+      <origin
+        xyz="0.014908 -0.0026532 0.0097343"
+        rpy="0 0 0" />
+      <mass
+        value="0.021948" />
+      <inertia
+        ixx="2.1292E-06"
+        ixy="7.3209E-08"
+        ixz="-1.2636E-07"
+        iyy="2.685E-06"
+        iyz="2.8046E-07"
+        izz="3.112E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spyderbot/meshes/fl1_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spyderbot/meshes/fl1_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="fl1_joint"
+    type="revolute">
+    <origin
+      xyz="-0.021666 0.021398 0.00925"
+      rpy="0 0 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="fl1_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="${-pi/2}"
+      upper="${pi/2}"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="fl2_link">
+    <inertial>
+      <origin
+        xyz="0.040025 0.0008006 -0.0014737"
+        rpy="0 0 0" />
+      <mass
+        value="0.0045124" />
+      <inertia
+        ixx="5.1719E-08"
+        ixy="-5.7125E-08"
+        ixz="1.7484E-09"
+        iyy="2.9064E-06"
+        iyz="3.5293E-11"
+        izz="2.9369E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spyderbot/meshes/fl2_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spyderbot/meshes/fl2_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="fl2_joint"
+    type="revolute">
+    <origin
+      xyz="0.021488 -0.022012 0.00725"
+      rpy="1.5708 0 0" />
+    <parent
+      link="fl1_link" />
+    <child
+      link="fl2_link" />
+    <axis
+      xyz="0.00054313 0 -1" />
+    <limit
+      lower="${-pi/2}"
+      upper="${pi/2}"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="fl3_link">
+    <inertial>
+      <origin
+        xyz="0.007522 -0.00070828 -0.0036571"
+        rpy="0 0 0" />
+      <mass
+        value="0.0033751" />
+      <inertia
+        ixx="3.1663E-08"
+        ixy="5.455E-08"
+        ixz="7.2381E-09"
+        iyy="2.5239E-06"
+        iyz="-7.8032E-10"
+        izz="2.5382E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spyderbot/meshes/fl3_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spyderbot/meshes/fl3_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="fl3_joint"
+    type="revolute">
+    <origin
+      xyz="0.079987 0.0015999 -0.0059566"
+      rpy="0 0 0" />
+    <parent
+      link="fl2_link" />
+    <child
+      link="fl3_link" />
+    <axis
+      xyz="0.00054313 0 -1" />
+    <limit
+      lower="${-pi}"
+      upper="${pi}"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="rr1_link">
+    <inertial>
+      <origin
+        xyz="-0.014877 0.0028196 0.0097343"
+        rpy="0 0 0" />
+      <mass
+        value="0.021948" />
+      <inertia
+        ixx="2.1309E-06"
+        ixy="7.9402E-08"
+        ixz="1.2322E-07"
+        iyy="2.6833E-06"
+        iyz="-2.8185E-07"
+        izz="3.112E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spyderbot/meshes/rr1_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spyderbot/meshes/rr1_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rr1_joint"
+    type="revolute">
+    <origin
+      xyz="0.021666 -0.021398 0.00925"
+      rpy="0 0 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="rr1_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="${-pi/2}"
+      upper="${pi/2}"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="rr2_link">
+    <inertial>
+      <origin
+        xyz="-0.040039 0.00077869 0.0010263"
+        rpy="0 0 0" />
+      <mass
+        value="0.0045124" />
+      <inertia
+        ixx="5.1978E-08"
+        ixy="5.5559E-08"
+        ixz="-3.0497E-08"
+        iyy="2.9065E-06"
+        iyz="5.8666E-10"
+        izz="2.9366E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spyderbot/meshes/rr2_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spyderbot/meshes/rr2_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rr2_joint"
+    type="revolute">
+    <origin
+      xyz="-0.021241 0.02225 0.00725"
+      rpy="1.5708 0 0" />
+    <parent
+      link="rr1_link" />
+    <child
+      link="rr2_link" />
+    <axis
+      xyz="-0.01172 0 0.99993" />
+    <limit
+      lower="${-pi/2}"
+      upper="${pi/2}"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="rr3_link">
+    <inertial>
+      <origin
+        xyz="-0.0075628 -0.00070432 0.0035728"
+        rpy="0 0 0" />
+      <mass
+        value="0.0033751" />
+      <inertia
+        ixx="3.1758E-08"
+        ixy="-5.3241E-08"
+        ixz="-2.0777E-08"
+        iyy="2.524E-06"
+        iyz="1.8146E-10"
+        izz="2.5381E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spyderbot/meshes/rr3_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spyderbot/meshes/rr3_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rr3_joint"
+    type="revolute">
+    <origin
+      xyz="-0.08005 0.0015561 0.0050622"
+      rpy="0 0 0" />
+    <parent
+      link="rr2_link" />
+    <child
+      link="rr3_link" />
+    <axis
+      xyz="-0.01172 0 0.99993" />
+    <limit
+      lower="${-pi}"
+      upper="${pi}"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="rl1_link">
+    <inertial>
+      <origin
+        xyz="0.01488 0.0028025 0.0097343"
+        rpy="0 0 0" />
+      <mass
+        value="0.021948" />
+      <inertia
+        ixx="2.1307E-06"
+        ixy="-7.8768E-08"
+        ixz="-1.2354E-07"
+        iyy="2.6834E-06"
+        iyz="-2.8171E-07"
+        izz="3.112E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spyderbot/meshes/rl1_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spyderbot/meshes/rl1_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rl1_joint"
+    type="revolute">
+    <origin
+      xyz="-0.021666 -0.021398 0.00925"
+      rpy="0 0 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="rl1_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="${-pi/2}"
+      upper="${pi/2}"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="rl2_link">
+    <inertial>
+      <origin
+        xyz="0.040038 0.00080023 0.0010722"
+        rpy="0 0 0" />
+      <mass
+        value="0.0045124" />
+      <inertia
+        ixx="5.1973E-08"
+        ixy="-5.7096E-08"
+        ixz="2.7185E-08"
+        iyy="2.9064E-06"
+        iyz="5.3734E-10"
+        izz="2.9367E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spyderbot/meshes/rl2_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spyderbot/meshes/rl2_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rl2_joint"
+    type="revolute">
+    <origin
+      xyz="0.021266 0.022226 0.00725"
+      rpy="1.5708 0 0" />
+    <parent
+      link="rl1_link" />
+    <child
+      link="rl2_link" />
+    <axis
+      xyz="0.010572 0 0.99994" />
+    <limit
+      lower="${-pi/2}"
+      upper="${pi/2}"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="rl3_link">
+    <inertial>
+      <origin
+        xyz="0.0075583 -0.00070834 0.0035815"
+        rpy="0 0 0" />
+      <mass
+        value="0.0033751" />
+      <inertia
+        ixx="3.1771E-08"
+        ixy="5.4574E-08"
+        ixz="1.7899E-08"
+        iyy="2.5239E-06"
+        iyz="2.3309E-10"
+        izz="2.5381E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spyderbot/meshes/rl3_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://spyderbot/meshes/rl3_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rl3_joint"
+    type="revolute">
+    <origin
+      xyz="0.080043 0.0015992 0.0051541"
+      rpy="0 0 0" />
+    <parent
+      link="rl2_link" />
+    <child
+      link="rl3_link" />
+    <axis
+      xyz="0.010572 0 0.99994" />
+    <limit
+      lower="${-pi}"
+      upper="${pi}"
+      effort="0"
+      velocity="0" />
+  </joint>
+</robot>
