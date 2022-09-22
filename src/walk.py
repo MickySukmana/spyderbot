@@ -13,11 +13,11 @@ class walk():
         swing = 5
         drop = 20
 
-        self.fs = ik.calc(30, 40, swing)	#move front leg 10cm forward
-        self.fd = ik.calc(30, 40, drop)		#drop front leg
-        self.rs = ik.calc(30, 20, swing)	#move rear leg 10cm forward
-        self.rd = ik.calc(30, 20, drop)		#drop rear leg
-        self.ip = ik.calc(30, 30, drop)		#return to initial position
+        self.fs = ik.calc(30, 40, swing)	
+        self.fd = ik.calc(30, 40, drop)		
+        self.rs = ik.calc(30, 20, swing)	
+        self.rd = ik.calc(30, 20, drop)		
+        self.ip = ik.calc(30, 30, drop)		
         self.ll = ik.calc(30, 50, drop)
         self.ips = ik.calc(30, 30, swing)
 
