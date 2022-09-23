@@ -1,4 +1,6 @@
 # Spyderbot
+Work in progress.  
+  
 A simulation of quadruped robot using ROS2 and Gazebo.  
   
 this package requires ros2_control, ros2_gazebo_control, ros2_controllers to be used
