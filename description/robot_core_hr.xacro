@@ -1,8 +1,12 @@
 <?xml version="1.0"?>
-<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
-     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
-     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:property name="damping" value="1.0"/>
+  <xacro:property name="friction" value="1000.0"/>
+  <xacro:property name="mu1" value="100.0"/>
+  <xacro:property name="mu2" value="100.0"/>
+
   <link
     name="base_link">
     <inertial>
@@ -43,6 +47,8 @@
       </geometry>
     </collision>
   </link>
+
+  <!--FR1_LINK -->
   <link
     name="fr1_link">
     <inertial>
@@ -83,6 +89,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="fr1_joint"
     type="revolute">
@@ -94,13 +101,18 @@
     <child
       link="fr1_link" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 1" />
     <limit
       lower="${-pi/2}"
       upper="${pi/2}"
-      effort="0"
-      velocity="0" />
+      effort="1.4"
+      velocity="1" />
+    <dynamics
+      damping="${damping}"
+      friction="${friction}" />
   </joint>
+
+  <!--FR2_LINK -->
   <link
     name="fr2_link">
     <inertial>
@@ -141,6 +153,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="fr2_joint"
     type="revolute">
@@ -152,13 +165,18 @@
     <child
       link="fr2_link" />
     <axis
-      xyz="-0.0011869 0 1" />
+      xyz="-0.0011869 0 -1" />
     <limit
       lower="${-pi/2}"
       upper="${pi/2}"
-      effort="0"
-      velocity="0" />
+      effort="1.4"
+      velocity="1" />
+    <dynamics
+      damping="${damping}"
+      friction="${friction}" />
   </joint>
+
+  <!-- FR3_LINK -->
   <link
     name="fr3_link">
     <inertial>
@@ -199,6 +217,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="fr3_joint"
     type="revolute">
@@ -210,13 +229,18 @@
     <child
       link="fr3_link" />
     <axis
-      xyz="-0.0011869 0 1" />
+      xyz="-0.0011869 0 -1" />
     <limit
       lower="${-pi}"
       upper="${pi}"
-      effort="0"
-      velocity="0" />
+      effort="1.4"
+      velocity="1" />
+    <dynamics
+      damping="${damping}"
+      friction="${friction}" />
   </joint>
+
+  <!-- FL1_LINK -->
   <link
     name="fl1_link">
     <inertial>
@@ -257,6 +281,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="fl1_joint"
     type="revolute">
@@ -272,9 +297,14 @@
     <limit
       lower="${-pi/2}"
       upper="${pi/2}"
-      effort="0"
-      velocity="0" />
+      effort="1.4"
+      velocity="1" />
+    <dynamics
+      damping="${damping}"
+      friction="${friction}" />
   </joint>
+
+  <!-- FL2_LINK -->
   <link
     name="fl2_link">
     <inertial>
@@ -315,6 +345,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="fl2_joint"
     type="revolute">
@@ -330,9 +361,14 @@
     <limit
       lower="${-pi/2}"
       upper="${pi/2}"
-      effort="0"
-      velocity="0" />
+      effort="1.4"
+      velocity="1" />
+    <dynamics
+      damping="${damping}"
+      friction="${friction}" />
   </joint>
+
+  <!-- FL3_LINK -->
   <link
     name="fl3_link">
     <inertial>
@@ -373,6 +409,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="fl3_joint"
     type="revolute">
@@ -388,9 +425,14 @@
     <limit
       lower="${-pi}"
       upper="${pi}"
-      effort="0"
-      velocity="0" />
+      effort="1.4"
+      velocity="1" />
+    <dynamics
+      damping="${damping}"
+      friction="${friction}" />
   </joint>
+
+  <!-- RR1_LINK -->
   <link
     name="rr1_link">
     <inertial>
@@ -431,6 +473,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="rr1_joint"
     type="revolute">
@@ -446,9 +489,14 @@
     <limit
       lower="${-pi/2}"
       upper="${pi/2}"
-      effort="0"
-      velocity="0" />
+      effort="1.4"
+      velocity="1" />
+    <dynamics
+      damping="${damping}"
+      friction="${friction}" />
   </joint>
+
+  <!-- RR2_LINK -->
   <link
     name="rr2_link">
     <inertial>
@@ -489,6 +537,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="rr2_joint"
     type="revolute">
@@ -504,9 +553,14 @@
     <limit
       lower="${-pi/2}"
       upper="${pi/2}"
-      effort="0"
-      velocity="0" />
+      effort="1.4"
+      velocity="1" />
+    <dynamics
+      damping="${damping}"
+      friction="${friction}" />
   </joint>
+
+  <!-- RR3_LINK -->
   <link
     name="rr3_link">
     <inertial>
@@ -547,6 +601,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="rr3_joint"
     type="revolute">
@@ -562,9 +617,14 @@
     <limit
       lower="${-pi}"
       upper="${pi}"
-      effort="0"
-      velocity="0" />
+      effort="1.4"
+      velocity="1" />
+    <dynamics
+      damping="${damping}"
+      friction="${friction}" />
   </joint>
+
+  <!--RL1_LINK -->
   <link
     name="rl1_link">
     <inertial>
@@ -605,6 +665,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="rl1_joint"
     type="revolute">
@@ -616,13 +677,18 @@
     <child
       link="rl1_link" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 1" />
     <limit
       lower="${-pi/2}"
       upper="${pi/2}"
-      effort="0"
-      velocity="0" />
+      effort="1.4"
+      velocity="1" />
+    <dynamics
+      damping="${damping}"
+      friction="${friction}" />
   </joint>
+
+  <!-- RL2_LINK -->
   <link
     name="rl2_link">
     <inertial>
@@ -663,6 +729,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="rl2_joint"
     type="revolute">
@@ -674,13 +741,18 @@
     <child
       link="rl2_link" />
     <axis
-      xyz="0.010572 0 0.99994" />
+      xyz="0.010572 0 -0.99994" />
     <limit
       lower="${-pi/2}"
       upper="${pi/2}"
-      effort="0"
-      velocity="0" />
+      effort="1.4"
+      velocity="1" />
+    <dynamics
+      damping="${damping}"
+      friction="${friction}" />
   </joint>
+
+  <!-- RL3_LINK -->
   <link
     name="rl3_link">
     <inertial>
@@ -721,6 +793,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="rl3_joint"
     type="revolute">
@@ -732,11 +805,253 @@
     <child
       link="rl3_link" />
     <axis
-      xyz="0.010572 0 0.99994" />
+      xyz="0.010572 0 -0.99994" />
     <limit
       lower="${-pi}"
       upper="${pi}"
-      effort="0"
-      velocity="0" />
+      effort="1.4"
+      velocity="1" />
+    <dynamics
+      damping="${damping}"
+      friction="${friction}" />
   </joint>
+
+  <!-- GAZEBO REF -->
+
+  <gazebo reference="base_link">
+    <material>Gazebo/Red</material>
+    <minDepth>0.0002</minDepth>
+  </gazebo>
+
+  <gazebo reference="fr1_link">
+    <material>Gazebo/Black</material>
+    <maxVel>1.0</maxVel>
+  </gazebo>
+
+  <gazebo reference="fr2_link">
+    <material>Gazebo/Red</material>
+    <maxVel>1.0</maxVel>
+  </gazebo>
+
+  <gazebo reference="fr3_link">
+    <material>Gazebo/Black</material>
+    <mu1 value="${mu1}"/>
+    <mu2 value="${mu2}"/>
+    <maxVel>1.0</maxVel>
+    <minDepth>0.0002</minDepth>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+  </gazebo>
+
+  <gazebo reference="fl1_link">
+    <material>Gazebo/Black</material>
+    <maxVel>1.0</maxVel>
+  </gazebo>
+
+  <gazebo reference="fl2_link">
+    <material>Gazebo/Red</material>
+    <maxVel>1.0</maxVel>
+  </gazebo>
+
+  <gazebo reference="fl3_link">
+    <material>Gazebo/Black</material>
+    <mu1 value="${mu1}"/>
+    <mu2 value="${mu2}"/>
+    <maxVel>1.0</maxVel>
+    <minDepth>0.0002</minDepth>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+  </gazebo>
+
+  <gazebo reference="rr1_link">
+    <material>Gazebo/Black</material>
+    <maxVel>1.0</maxVel>
+  </gazebo>
+
+  <gazebo reference="rr2_link">
+    <material>Gazebo/Red</material>
+    <maxVel>1.0</maxVel>
+  </gazebo>
+
+  <gazebo reference="rr3_link">
+    <material>Gazebo/Black</material>
+    <mu1 value="${mu1}"/>
+    <mu2 value="${mu2}"/>
+    <maxVel>1.0</maxVel>
+    <minDepth>0.0002</minDepth>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+  </gazebo>
+
+  <gazebo reference="rl1_link">
+    <material>Gazebo/Black</material>
+    <maxVel>1.0</maxVel>
+  </gazebo>
+
+  <gazebo reference="rl2_link">
+    <material>Gazebo/Red</material>
+    <maxVel>1.0</maxVel>
+  </gazebo>
+
+  <gazebo reference="rl3_link">
+    <material>Gazebo/Black</material>
+    <mu1 value="${mu1}"/>
+    <mu2 value="${mu2}"/>
+    <maxVel>1.0</maxVel>
+    <minDepth>0.0002</minDepth>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+  </gazebo>
+
+  <!-- GAZEBO CONTROL -->
+  <ros2_control name="GazeboSystem" type="system">
+    <hardware>
+      <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+    </hardware>
+
+    <joint name="fr1_joint">
+      <command_interface name="position">
+        <param name="min">${-pi/2}</param>
+        <param name="max">${pi/2}</param>
+      </command_interface>
+      <state_interface name="position">
+        <param name="initial_value">${0}</param>
+      </state_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="fr2_joint">
+      <command_interface name="position">
+        <param name="min">${-pi/2}</param>
+        <param name="max">${pi/2}</param>
+      </command_interface>
+      <state_interface name="position">
+        <param name="initial_value">${0}</param>
+      </state_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="fr3_joint">
+      <command_interface name="position">
+        <param name="min">${-pi}</param>
+        <param name="max">${pi}</param>
+      </command_interface>
+      <state_interface name="position">
+        <param name="initial_value">${0}</param>
+      </state_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="fl1_joint">
+      <command_interface name="position">
+        <param name="min">${-pi/2}</param>
+        <param name="max">${pi/2}</param>
+      </command_interface>
+      <state_interface name="position">
+        <param name="initial_value">${0}</param>
+      </state_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="fl2_joint">
+      <command_interface name="position">
+        <param name="min">${-pi/2}</param>
+        <param name="max">${pi/2}</param>
+      </command_interface>
+      <state_interface name="position">
+        <param name="initial_value">${0}</param>
+      </state_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="fl3_joint">
+      <command_interface name="position">
+        <param name="min">${-pi}</param>
+        <param name="max">${pi}</param>
+      </command_interface>
+      <state_interface name="position">
+        <param name="initial_value">${0}</param>
+      </state_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="rr1_joint">
+      <command_interface name="position">
+        <param name="min">${-pi/2}</param>
+        <param name="max">${pi/2}</param>
+      </command_interface>
+      <state_interface name="position">
+        <param name="initial_value">${0}</param>
+      </state_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="rr2_joint">
+      <command_interface name="position">
+        <param name="min">${-pi/2}</param>
+        <param name="max">${pi/2}</param>
+      </command_interface>
+      <state_interface name="position">
+        <param name="initial_value">${0}</param>
+      </state_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="rr3_joint">
+      <command_interface name="position">
+        <param name="min">${-pi}</param>
+        <param name="max">${pi}</param>
+      </command_interface>
+      <state_interface name="position">
+        <param name="initial_value">${0}</param>
+      </state_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="rl1_joint">
+      <command_interface name="position">
+        <param name="min">${-pi/2}</param>
+        <param name="max">${pi/2}</param>
+      </command_interface>
+      <state_interface name="position">
+        <param name="initial_value">${0}</param>
+      </state_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="rl2_joint">
+      <command_interface name="position">
+        <param name="min">${-pi/2}</param>
+        <param name="max">${pi/2}</param>
+      </command_interface>
+      <state_interface name="position">
+        <param name="initial_value">${0}</param>
+      </state_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="rl3_joint">
+      <command_interface name="position">
+        <param name="min">${-pi}</param>
+        <param name="max">${pi}</param>
+      </command_interface>
+      <state_interface name="position">
+        <param name="initial_value">${0}</param>
+      </state_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+  </ros2_control>
+
 </robot>

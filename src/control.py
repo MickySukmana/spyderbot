@@ -16,10 +16,17 @@ class SpyderActionClient(Node):
     def send_goal(self, _position, time_s):
         goal_msg = FollowJointTrajectory.Goal()
 
+        """
         joint_names = ["lleg1_ax1_joint", "lleg1_ax2_joint", "lleg1_ax3_joint",
                        "lleg2_ax1_joint", "lleg2_ax2_joint", "lleg2_ax3_joint",
                        "rleg1_ax1_joint", "rleg1_ax2_joint", "rleg1_ax3_joint",
                        "rleg2_ax1_joint", "rleg2_ax2_joint", "rleg2_ax3_joint"
+                      ]
+        """
+        joint_names = ["rl1_joint", "rl2_joint", "rl3_joint",
+                       "fl1_joint", "fl2_joint", "fl3_joint",
+                       "rr1_joint", "rr2_joint", "rr3_joint",
+                       "fr1_joint", "fr2_joint", "fr3_joint"
                       ]
 
         points = []

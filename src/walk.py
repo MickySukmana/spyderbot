@@ -9,7 +9,8 @@ from time import sleep
 
 class walk():
     def __init__(self):
-        ik = inverse_kinematic(40, 40)
+        ik = inverse_kinematic(8, 6.8)
+        """
         swing = 5
         drop = 20
 
@@ -20,6 +21,17 @@ class walk():
         self.ip = ik.calc(30, 30, drop)		
         self.ll = ik.calc(30, 50, drop)
         self.ips = ik.calc(30, 30, swing)
+        """
+        swing = 2
+        drop = 5
+
+        self.fs = ik.calc(5, 6, swing)	
+        self.fd = ik.calc(5, 6, drop)		
+        self.rs = ik.calc(5, 4, swing)	
+        self.rd = ik.calc(5, 4, drop)		
+        self.ip = ik.calc(5, 5, drop)		
+        self.ll = ik.calc(5, 7, drop)
+        self.ips = ik.calc(5, 5, swing)
 
     def forward(self):
         movement = [
@@ -39,12 +51,13 @@ class walk():
         for angle in movement:   
             rclpy.init()
             action_client=control.SpyderActionClient()
-            action_client.send_goal(angle, 1)
+            action_client.send_goal(angle, 0.5)
             rclpy.spin(action_client)
 
 def main():
     mov = walk()
-    mov.forward()
+    while True:
+        mov.forward()
 
 if __name__=="__main__":
     main()

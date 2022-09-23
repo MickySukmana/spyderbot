@@ -4,27 +4,27 @@
 	<xacro:include filename="inertial_macros.xacro"/>
 
 	<xacro:property name="damping" value="10"/>
-	<xacro:property name="friction" value="500"/>	
-	<xacro:property name="mu1" value="550"/>
-	<xacro:property name="mu2" value="550"/>
+	<xacro:property name="friction" value="100"/>	
+	<xacro:property name="mu1" value="1"/>
+	<xacro:property name="mu2" value="1"/>
 	<xacro:property name="velocity" value="1"/>
 	<xacro:property name="effort" value="10"/>
-	<xacro:property name="base_mass" value="10"/>
-	<xacro:property name="leg_mass" value="5"/>
-	<xacro:property name="leg_mass3" value="5"/>
-	<xacro:property name="fdir" value="1 0 0"/>
-
+	<xacro:property name="base_mass" value="5"/>
+	<xacro:property name="leg_mass" value="1"/>
+	<xacro:property name="leg_mass3" value="1"/>
+	<xacro:property name="fdir" value="0 0 1"/>
+	
 	<link name="base_link">
 
 	</link>
-	
+
 	<!-- STAND -->
 	<joint name="stand_joint" type="fixed">
 		<parent link="base_link"/>
 		<child link="stand_link"/>
 		<origin xyz="0 0 0"/>
 	</joint>
-	
+
 	<link name="stand_link">
 		<visual>
 			<origin xyz="0 0 0.02"/>
@@ -47,9 +47,6 @@
 	
 	<gazebo reference="stand_link">
 		<material>Gazebo/Red</material>
-		<mu1 value="${mu1}"/>
-		<mu2 value="${mu2}"/>
-		<fdir1 value="${fdir}"/>
 		<maxVel>1.0</maxVel>
     	<minDepth>0.01</minDepth>
 	</gazebo>
@@ -86,11 +83,7 @@
 
 	<gazebo reference="lleg1_ax1_link">
 		<material>Gazebo/Black</material>
-		<mu1 value="${mu1}"/>
-		<mu2 value="${mu2}"/>
-		<fdir1 value="${fdir}"/>
 		<maxVel>1.0</maxVel>
-    	<minDepth>0.01</minDepth>
 	</gazebo>
 
 	<!-- LEFT_LEG1_AX2 -->
@@ -125,11 +118,7 @@
 
 	<gazebo reference="lleg1_ax2_link">
 		<material>Gazebo/Red</material>
-		<mu1 value="${mu1}"/>
-		<mu2 value="${mu2}"/>
-		<fdir1 value="${fdir}"/>
 		<maxVel>1.0</maxVel>
-    	<minDepth>0.01</minDepth>
 	</gazebo>
 
 	<!-- LEFT_LEG1_AX3 -->
@@ -166,9 +155,9 @@
 		<material>Gazebo/Black</material>
 		<mu1 value="${mu1}"/>
 		<mu2 value="${mu2}"/>
-		<fdir1 value="${fdir}"/>
+		<!--<fdir1 value="${fdir}"/>-->
 		<maxVel>1.0</maxVel>
-    	<minDepth>0.01</minDepth>
+    	<minDepth>0.04</minDepth>
 		<kp>1000000.0</kp>
 		<kd>100.0</kd>
 	</gazebo>
@@ -205,11 +194,7 @@
 
 	<gazebo reference="lleg2_ax1_link">
 		<material>Gazebo/Black</material>
-		<mu1 value="${mu1}"/>
-		<mu2 value="${mu2}"/>
-		<fdir1 value="${fdir}"/>
 		<maxVel>1.0</maxVel>
-    	<minDepth>0.01</minDepth>
 	</gazebo>
 	
 	<!-- LEFT_LEG2_AX2 -->
@@ -244,11 +229,7 @@
 
 	<gazebo reference="lleg2_ax2_link">
 		<material>Gazebo/Red</material>
-		<mu1 value="${mu1}"/>
-		<mu2 value="${mu2}"/>
-		<fdir1 value="${fdir}"/>
 		<maxVel>1.0</maxVel>
-    	<minDepth>0.01</minDepth>
 	</gazebo>
 
 	<!-- LEFT_LEG2_AX3 -->
@@ -276,21 +257,6 @@
 			</geometry>
 		</collision>
 
-		<!-- added pads 
-		<visual>
-			<origin xyz="0 -0.04 0.38"/>
-			<geometry>
-				<sphere radius="0.04"/>
-			</geometry>
-		</visual>
-
-		<collision>
-			<origin xyz="0 -0.04 0.38"/>
-			<geometry>
-				<sphere radius="0.04"/>
-			</geometry>
-		</collision>	
-		-->
 		<xacro:inertial_box mass="${leg_mass3}" x="0.04" y="0.04" z="0.4">
 			<origin xyz="0 -0.04 0.18" rpy="0 0 0"/>
 		</xacro:inertial_box>
@@ -300,9 +266,9 @@
 		<material>Gazebo/Black</material>
 		<mu1 value="${mu1}"/>
 		<mu2 value="${mu2}"/>
-		<fdir1 value="${fdir}"/>
+		<!--<fdir1 value="${fdir}"/>-->
 		<maxVel>1.0</maxVel>
-    	<minDepth>0.01</minDepth>
+    	<minDepth>0.04</minDepth>
 		<kp>1000000.0</kp>
 		<kd>100.0</kd>
 	</gazebo>
@@ -339,11 +305,7 @@
 
 	<gazebo reference="rleg1_ax1_link">
 		<material>Gazebo/Black</material>
-		<mu1 value="${mu1}"/>
-		<mu2 value="${mu2}"/>
-		<fdir1 value="${fdir}"/>
 		<maxVel>1.0</maxVel>
-    	<minDepth>0.01</minDepth>
 	</gazebo>	
 
 	<!-- RIGHT_LEG1_AX2 -->
@@ -378,11 +340,7 @@
 
 	<gazebo reference="rleg1_ax2_link">
 		<material>Gazebo/Red</material>
-		<mu1 value="${mu1}"/>
-		<mu2 value="${mu2}"/>
-		<fdir1 value="${fdir}"/>
 		<maxVel>1.0</maxVel>
-    	<minDepth>0.01</minDepth>
 	</gazebo>
 
 	<!-- RIGHT_LEG1_AX3 -->
@@ -410,21 +368,6 @@
 			</geometry>
 		</collision>
 		
-		<!-- added pads 
-		<visual>
-			<origin xyz="0 -0.04 0.38"/>
-			<geometry>
-				<sphere radius="0.04"/>
-			</geometry>
-		</visual>
-
-		<collision>
-			<origin xyz="0 -0.04 0.38"/>
-			<geometry>
-				<sphere radius="0.04"/>
-			</geometry>
-		</collision>
-		-->
 		<xacro:inertial_box mass="${leg_mass3}" x="0.04" y="0.04" z="0.4">
 			<origin xyz="0 -0.04 0.18" rpy="0 0 0"/>
 		</xacro:inertial_box>
@@ -434,9 +377,9 @@
 		<material>Gazebo/Black</material>
 		<mu1 value="${mu1}"/>
 		<mu2 value="${mu2}"/>
-		<fdir1 value="${fdir}"/>
+		<!--<fdir1 value="${fdir}"/>-->
 		<maxVel>1.0</maxVel>
-    	<minDepth>0.01</minDepth>
+    	<minDepth>0.04</minDepth>
 		<kp>1000000.0</kp>
 		<kd>100.0</kd>
 	</gazebo>
@@ -473,11 +416,7 @@
 	
 	<gazebo reference="rleg2_ax1_link">
 		<material>Gazebo/Black</material>
-		<mu1 value="${mu1}"/>
-		<mu2 value="${mu2}"/>
-		<fdir1 value="${fdir}"/>
 		<maxVel>1.0</maxVel>
-    	<minDepth>0.01</minDepth>
 	</gazebo>
 
 	<!-- RIGHT_LEG2_AX2 -->
@@ -512,11 +451,7 @@
 
 	<gazebo reference="rleg2_ax2_link">
 		<material>Gazebo/Red</material>
-		<mu1 value="${mu1}"/>
-		<mu2 value="${mu2}"/>
-		<fdir1 value="${fdir}"/>
 		<maxVel>1.0</maxVel>
-    	<minDepth>0.01</minDepth>
 	</gazebo>
 
 	<!-- RIGHT_LEG2_AX3 -->
@@ -544,21 +479,6 @@
 			</geometry>
 		</collision>
 
-		<!-- added pads 
-		<visual>
-			<origin xyz="0 -0.04 0.38"/>
-			<geometry>
-				<sphere radius="0.04"/>
-			</geometry>
-		</visual>
-
-		<collision>
-			<origin xyz="0 -0.04 0.38"/>
-			<geometry>
-				<sphere radius="0.04"/>
-			</geometry>
-		</collision>
-		-->
 		<xacro:inertial_box mass="${leg_mass3}" x="0.04" y="0.04" z="0.4">
 			<origin xyz="0 -0.04 0.18" rpy="0 0 0"/>
 		</xacro:inertial_box>
@@ -568,9 +488,9 @@
 		<material>Gazebo/Black</material>
 		<mu1 value="${mu1}"/>
 		<mu2 value="${mu2}"/>
-		<fdir1 value="${fdir}"/>
+		<!--<fdir1 value="${fdir}"/>-->
 		<maxVel>1.0</maxVel>
-    	<minDepth>0.01</minDepth>
+    	<minDepth>0.04</minDepth>
 		<kp>1000000.0</kp>
  		<kd>100.0</kd>
 	</gazebo>

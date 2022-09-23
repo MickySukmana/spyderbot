@@ -14,8 +14,6 @@ import xacro
 def generate_launch_description():
 
     pkg_path = os.path.join(get_package_share_directory('spyderbot'))
-    xacro_file = os.path.join(pkg_path,'description','robot.urdf.xacro')
-    robot_description_config = xacro.process_file(xacro_file)
     rviz_config_path = os.path.join(pkg_path, 'rviz','default.rviz')
     launch_rsp_path = os.path.join(pkg_path, 'launch','rsp.launch.py')
 
