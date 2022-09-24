@@ -30,7 +30,7 @@ although there's still an issue that the robot just walk in place without moving
 
 ## Custom model
 ![alt text](https://github.com/MickySukmana/spyderbot/blob/main/img/custom_model.png?raw=true)  
-
+![alt text](https://github.com/MickySukmana/spyderbot/blob/main/img/custom_model.gif?raw=true)  
 ## Dummy model
 ![alt text](https://github.com/MickySukmana/spyderbot/blob/main/img/stand.gif?raw=true)
 ![alt text](https://github.com/MickySukmana/spyderbot/blob/main/img/sit.gif?raw=true)
