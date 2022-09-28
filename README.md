@@ -26,7 +26,8 @@ or you can make the robot walk forward by using this command:
 ```
 ros2 run spyderbot walk.py
 ```  
-although there's still an issue that the robot just walk in place without moving forward. currently trying to fix it  
+although there's still an issue that the robot just walk in place without moving forward. currently trying to fix it
+28 sep 2022. the robot is now able to move slightly forward from adjusting the controllers gain.
 
 ## Custom model
 ![alt text](https://github.com/MickySukmana/spyderbot/blob/main/img/custom_model.png?raw=true)  
