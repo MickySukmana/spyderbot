@@ -56,18 +56,18 @@ joint_trajectory_controller:
       stopped_velocity_tolerance: 0.0 
       goal_time: 0.0  
     gains:
-        fr1_joint  : {p: 450000, i: 5, d: 9, i_clamp_min:  -1000, i_clamp_max: 1000}
-        fr2_joint  : {p: 450000, i: 5, d: 9, i_clamp_min:  -1000, i_clamp_max: 1000}
-        fr3_joint  : {p: 450000, i: 5, d: 9, i_clamp_min:  -1000, i_clamp_max: 1000}
+        fr1_joint  : {p: 100, i: 10, d: 5, i_clamp_min:  -1000, i_clamp_max: 1000}
+        fr2_joint  : {p: 100, i: 10, d: 5, i_clamp_min:  -1000, i_clamp_max: 1000}
+        fr3_joint  : {p: 100, i: 10, d: 5, i_clamp_min:  -1000, i_clamp_max: 1000}
 
-        fl1_joint  : {p: 450000, i: 5, d: 9, i_clamp_min:  -1000, i_clamp_max: 1000}
-        fl2_joint  : {p: 450000, i: 5, d: 9, i_clamp_min:  -1000, i_clamp_max: 1000}
-        fl3_joint  : {p: 450000, i: 5, d: 9, i_clamp_min:  -1000, i_clamp_max: 1000}
+        fl1_joint  : {p: 100, i: 10, d: 5, i_clamp_min:  -1000, i_clamp_max: 1000}
+        fl2_joint  : {p: 100, i: 10, d: 5, i_clamp_min:  -1000, i_clamp_max: 1000}
+        fl3_joint  : {p: 100, i: 10, d: 5, i_clamp_min:  -1000, i_clamp_max: 1000}
 
-        rr1_joint  : {p: 450000, i: 5, d: 9, i_clamp_min:  -1000, i_clamp_max: 1000}
-        rr2_joint  : {p: 450000, i: 5, d: 9, i_clamp_min:  -1000, i_clamp_max: 1000}
-        rr3_joint  : {p: 450000, i: 5, d: 9, i_clamp_min:  -1000, i_clamp_max: 1000}
+        rr1_joint  : {p: 100, i: 10, d: 5, i_clamp_min:  -1000, i_clamp_max: 1000}
+        rr2_joint  : {p: 100, i: 10, d: 5, i_clamp_min:  -1000, i_clamp_max: 1000}
+        rr3_joint  : {p: 100, i: 10, d: 5, i_clamp_min:  -1000, i_clamp_max: 1000}
 
-        rl1_joint  : {p: 450000, i: 5, d: 9, i_clamp_min:  -1000, i_clamp_max: 1000}
-        rl2_joint  : {p: 450000, i: 5, d: 9, i_clamp_min:  -1000, i_clamp_max: 1000}
-        rl3_joint  : {p: 450000, i: 5, d: 9, i_clamp_min:  -1000, i_clamp_max: 1000}
+        rl1_joint  : {p: 100, i: 10, d: 5, i_clamp_min:  -1000, i_clamp_max: 1000}
+        rl2_joint  : {p: 100, i: 10, d: 5, i_clamp_min:  -1000, i_clamp_max: 1000}
+        rl3_joint  : {p: 100, i: 10, d: 5, i_clamp_min:  -1000, i_clamp_max: 1000}

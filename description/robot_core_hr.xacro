@@ -6,9 +6,10 @@
   <xacro:property name="friction" value="100.0"/>
   <xacro:property name="mu1" value="10000.0"/>
   <xacro:property name="mu2" value="10000.0"/>
-  <xacro:property name="fdir" value="0 1 0"/>
+  <xacro:property name="fdir" value="0 0 1"/>
   <xacro:property name="minDepth" value="0.002"/>
-
+  <xacro:property name="kp" value="1000000"/>
+  <xacro:property name="kd" value="100"/>
   <link
     name="base_link">
     <inertial>
@@ -848,8 +849,8 @@
 	<fdir1>${fdir}</fdir1>
     <maxVel>1.0</maxVel>
     <minDepth>${minDepth}</minDepth>
-    <kp>1000000.0</kp>
-    <kd>100.0</kd>
+    <kp>${kp}</kp>
+    <kd>${kd}</kd>
   </gazebo>
 
   <gazebo reference="fl1_link">
@@ -873,8 +874,8 @@
 	<fdir1>${fdir}</fdir1>
     <maxVel>1.0</maxVel>
     <minDepth>${minDepth}</minDepth>
-    <kp>1000000.0</kp>
-    <kd>100.0</kd>
+    <kp>${kp}</kp>
+    <kd>${kd}</kd>
   </gazebo>
 
   <gazebo reference="rr1_link">
@@ -898,8 +899,8 @@
 	<fdir1>${fdir}</fdir1>
     <maxVel>1.0</maxVel>
     <minDepth>${minDepth}</minDepth>
-    <kp>1000000.0</kp>
-    <kd>100.0</kd>
+    <kp>${kp}</kp>
+    <kd>${kd}</kd>
   </gazebo>
 
   <gazebo reference="rl1_link">
@@ -923,8 +924,8 @@
 	<fdir1>${fdir}</fdir1>
     <maxVel>1.0</maxVel>
     <minDepth>${minDepth}</minDepth>
-    <kp>1000000.0</kp>
-    <kd>100.0</kd>
+    <kp>${kp}</kp>
+    <kd>${kd}</kd>
   </gazebo>
 
   <!-- GAZEBO CONTROL -->
