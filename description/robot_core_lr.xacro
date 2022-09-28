@@ -3,12 +3,12 @@
 
 	<xacro:include filename="inertial_macros.xacro"/>
 
-	<xacro:property name="damping" value="10"/>
-	<xacro:property name="friction" value="100"/>	
-	<xacro:property name="mu1" value="1"/>
-	<xacro:property name="mu2" value="1"/>
+	<xacro:property name="damping" value="0.7"/>
+	<xacro:property name="friction" value="10"/>	
+	<xacro:property name="mu1" value="100"/>
+	<xacro:property name="mu2" value="100"/>
 	<xacro:property name="velocity" value="1"/>
-	<xacro:property name="effort" value="10"/>
+	<xacro:property name="effort" value="1.7"/>
 	<xacro:property name="base_mass" value="5"/>
 	<xacro:property name="leg_mass" value="1"/>
 	<xacro:property name="leg_mass3" value="1"/>
@@ -505,11 +505,23 @@
                 <param name="min">${-pi/2}</param>
                 <param name="max">${pi/2}</param>
             </command_interface>
+			<command_interface name="velocity">
+        		<param name="min">-1</param>
+        		<param name="max">1</param>
+      		</command_interface>
+      		<command_interface name="effort">
+        		<param name="min">-0.5</param>
+        		<param name="max">0.5</param>
+      		</command_interface>
+			<command_interface name="Kp"/>
+      		<command_interface name="Kd"/>
+      		<command_interface name="effort_limit"/>
             <state_interface name="position">
                 <param name="initial_value">${0}</param>
             </state_interface>
             <state_interface name="velocity"/>
             <state_interface name="effort"/>
+			<state_interface name="contact_information"/>
         </joint>
 
 		<joint name="lleg1_ax2_joint">
@@ -517,11 +529,23 @@
                 <param name="min">${-pi/2}</param>
                 <param name="max">${pi/2}</param>
             </command_interface>
+			<command_interface name="velocity">
+        		<param name="min">-1</param>
+        		<param name="max">1</param>
+      		</command_interface>
+      		<command_interface name="effort">
+        		<param name="min">-0.5</param>
+        		<param name="max">0.5</param>
+      		</command_interface>
+			<command_interface name="Kp"/>
+      		<command_interface name="Kd"/>
+      		<command_interface name="effort_limit"/>
             <state_interface name="position">
                 <param name="initial_value">${0}</param>
             </state_interface>
             <state_interface name="velocity"/>
             <state_interface name="effort"/>
+			<state_interface name="contact_information"/>
         </joint>
 
 		<joint name="lleg1_ax3_joint">
@@ -529,11 +553,23 @@
                 <param name="min">${-pi}</param>
                 <param name="max">${pi}</param>
             </command_interface>
+			<command_interface name="velocity">
+        		<param name="min">-1</param>
+        		<param name="max">1</param>
+      		</command_interface>
+      		<command_interface name="effort">
+        		<param name="min">-0.5</param>
+        		<param name="max">0.5</param>
+      		</command_interface>
+			<command_interface name="Kp"/>
+      		<command_interface name="Kd"/>
+      		<command_interface name="effort_limit"/>
             <state_interface name="position">
                 <param name="initial_value">${0}</param>
             </state_interface>
             <state_interface name="velocity"/>
             <state_interface name="effort"/>
+			<state_interface name="contact_information"/>
         </joint>
 
 		<joint name="lleg2_ax1_joint">
@@ -541,11 +577,23 @@
                 <param name="min">${-pi/2}</param>
                 <param name="max">${pi/2}</param>
             </command_interface>
+			<command_interface name="velocity">
+        		<param name="min">-1</param>
+        		<param name="max">1</param>
+      		</command_interface>
+      		<command_interface name="effort">
+        		<param name="min">-0.5</param>
+        		<param name="max">0.5</param>
+      		</command_interface>
+			<command_interface name="Kp"/>
+      		<command_interface name="Kd"/>
+      		<command_interface name="effort_limit"/>
             <state_interface name="position">
                 <param name="initial_value">${0}</param>
             </state_interface>
             <state_interface name="velocity"/>
             <state_interface name="effort"/>
+			<state_interface name="contact_information"/>
         </joint>
 		
 		<joint name="lleg2_ax2_joint">
@@ -553,11 +601,23 @@
                 <param name="min">${-pi/2}</param>
                 <param name="max">${pi/2}</param>
             </command_interface>
+			<command_interface name="velocity">
+        		<param name="min">-1</param>
+        		<param name="max">1</param>
+      		</command_interface>
+      		<command_interface name="effort">
+        		<param name="min">-0.5</param>
+        		<param name="max">0.5</param>
+      		</command_interface>
+			<command_interface name="Kp"/>
+      		<command_interface name="Kd"/>
+      		<command_interface name="effort_limit"/>
             <state_interface name="position">
                 <param name="initial_value">${0}</param>
             </state_interface>
             <state_interface name="velocity"/>
             <state_interface name="effort"/>
+			<state_interface name="contact_information"/>
         </joint>
 
 		<joint name="lleg2_ax3_joint">
@@ -565,11 +625,23 @@
                 <param name="min">${-pi}</param>
                 <param name="max">${pi}</param>
             </command_interface>
+			<command_interface name="velocity">
+        		<param name="min">-1</param>
+        		<param name="max">1</param>
+      		</command_interface>
+      		<command_interface name="effort">
+        		<param name="min">-0.5</param>
+        		<param name="max">0.5</param>
+      		</command_interface>
+			<command_interface name="Kp"/>
+      		<command_interface name="Kd"/>
+      		<command_interface name="effort_limit"/>
             <state_interface name="position">
                 <param name="initial_value">${0}</param>
             </state_interface>
             <state_interface name="velocity"/>
             <state_interface name="effort"/>
+			<state_interface name="contact_information"/>
         </joint>
 
 		<joint name="rleg1_ax1_joint">
@@ -577,11 +649,23 @@
                 <param name="min">${-pi/2}</param>
                 <param name="max">${pi/2}</param>
             </command_interface>
+			<command_interface name="velocity">
+        		<param name="min">-1</param>
+        		<param name="max">1</param>
+      		</command_interface>
+      		<command_interface name="effort">
+        		<param name="min">-0.5</param>
+        		<param name="max">0.5</param>
+      		</command_interface>
+			<command_interface name="Kp"/>
+     		<command_interface name="Kd"/>
+      		<command_interface name="effort_limit"/>
             <state_interface name="position">
                 <param name="initial_value">${0}</param>
             </state_interface>
             <state_interface name="velocity"/>
             <state_interface name="effort"/>
+			<state_interface name="contact_information"/>
         </joint>
 
 		<joint name="rleg1_ax2_joint">
@@ -589,11 +673,23 @@
                 <param name="min">${-pi/2}</param>
                 <param name="max">${pi/2}</param>
             </command_interface>
+			<command_interface name="velocity">
+        		<param name="min">-1</param>
+        		<param name="max">1</param>
+      		</command_interface>
+      		<command_interface name="effort">
+        		<param name="min">-0.5</param>
+        		<param name="max">0.5</param>
+      		</command_interface>
+			<command_interface name="Kp"/>
+      		<command_interface name="Kd"/>
+      		<command_interface name="effort_limit"/>
             <state_interface name="position">
                 <param name="initial_value">${0}</param>
             </state_interface>
             <state_interface name="velocity"/>
             <state_interface name="effort"/>
+			<state_interface name="contact_information"/>
         </joint>
 
 		<joint name="rleg1_ax3_joint">
@@ -601,11 +697,23 @@
                 <param name="min">${-pi}</param>
                 <param name="max">${pi}</param>
             </command_interface>
+			<command_interface name="velocity">
+        		<param name="min">-1</param>
+        		<param name="max">1</param>
+      		</command_interface>
+      		<command_interface name="effort">
+        		<param name="min">-0.5</param>
+        		<param name="max">0.5</param>
+      		</command_interface>
+			<command_interface name="Kp"/>
+      		<command_interface name="Kd"/>
+      		<command_interface name="effort_limit"/>
             <state_interface name="position">
                 <param name="initial_value">${0}</param>
             </state_interface>
             <state_interface name="velocity"/>
             <state_interface name="effort"/>
+			<state_interface name="contact_information"/>
         </joint>
 
 		<joint name="rleg2_ax1_joint">
@@ -613,11 +721,23 @@
                 <param name="min">${-pi/2}</param>
                 <param name="max">${pi/2}</param>
             </command_interface>
+			<command_interface name="velocity">
+        		<param name="min">-1</param>
+        		<param name="max">1</param>
+      		</command_interface>
+      		<command_interface name="effort">
+        		<param name="min">-0.5</param>
+        		<param name="max">0.5</param>
+      		</command_interface>
+			<command_interface name="Kp"/>
+      		<command_interface name="Kd"/>
+      		<command_interface name="effort_limit"/>
             <state_interface name="position">
                 <param name="initial_value">${0}</param>
             </state_interface>
             <state_interface name="velocity"/>
             <state_interface name="effort"/>
+			<state_interface name="contact_information"/>
         </joint>
 
 		<joint name="rleg2_ax2_joint">
@@ -625,11 +745,23 @@
                 <param name="min">${-pi/2}</param>
                 <param name="max">${pi/2}</param>
             </command_interface>
+			<command_interface name="velocity">
+        		<param name="min">-1</param>
+        		<param name="max">1</param>
+      		</command_interface>
+      		<command_interface name="effort">
+        		<param name="min">-0.5</param>
+        		<param name="max">0.5</param>
+      		</command_interface>
+			<command_interface name="Kp"/>
+      		<command_interface name="Kd"/>
+      		<command_interface name="effort_limit"/>
             <state_interface name="position">
                 <param name="initial_value">${0}</param>
             </state_interface>
             <state_interface name="velocity"/>
             <state_interface name="effort"/>
+			<state_interface name="contact_information"/>
         </joint>
 
 		<joint name="rleg2_ax3_joint">
@@ -637,11 +769,23 @@
                 <param name="min">${-pi}</param>
                 <param name="max">${pi}</param>
             </command_interface>
+			<command_interface name="velocity">
+        		<param name="min">-1</param>
+        		<param name="max">1</param>
+      		</command_interface>
+      		<command_interface name="effort">
+        		<param name="min">-0.5</param>
+        		<param name="max">0.5</param>
+      		</command_interface>
+			<command_interface name="Kp"/>
+      		<command_interface name="Kd"/>
+      		<command_interface name="effort_limit"/>
             <state_interface name="position">
                 <param name="initial_value">${0}</param>
             </state_interface>
             <state_interface name="velocity"/>
             <state_interface name="effort"/>
+			<state_interface name="contact_information"/>
         </joint>
 	</ros2_control>
 

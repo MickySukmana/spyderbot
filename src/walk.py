@@ -22,7 +22,7 @@ class walk():
         self.ll = ik.calc(30, 50, drop)
         self.ips = ik.calc(30, 30, swing)
         """
-        swing = 2
+        swing = 4
         drop = 5
 
         self.fs = ik.calc(5, 6, swing)	
@@ -32,6 +32,19 @@ class walk():
         self.ip = ik.calc(5, 5, drop)		
         self.ll = ik.calc(5, 7, drop)
         self.ips = ik.calc(5, 5, swing)
+        self.str = ik.calc(5, 5, 0)
+    
+    def stand(self):
+        movement = [
+            self.str + self.str + self.str + self.str,
+            self.ip + self.rd + self.ip + self.ip
+        ]
+        
+        for angle in movement:   
+            rclpy.init()
+            action_client=control.SpyderActionClient()
+            action_client.send_goal(angle, 1)
+            rclpy.spin(action_client)        
 
     def forward(self):
         movement = [
@@ -51,11 +64,12 @@ class walk():
         for angle in movement:   
             rclpy.init()
             action_client=control.SpyderActionClient()
-            action_client.send_goal(angle, 0.5)
+            action_client.send_goal(angle, 0.25)
             rclpy.spin(action_client)
 
 def main():
     mov = walk()
+    mov.stand()
     while True:
         mov.forward()
 

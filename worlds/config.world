@@ -35,8 +35,8 @@
             </contact>
             <friction>
               <ode>
-                <mu>100</mu>
-                <mu2>100</mu2>
+                <mu>10000</mu>
+                <mu2>10000</mu2>
               </ode>
               <torsional>
                 <ode/>
@@ -76,7 +76,7 @@
       <ode>
       	<solver>
       	  <iters>100</iters>
-      	  <sor>0.8</sor>
+      	  <sor>0.9</sor>
       	</solver>
       </ode>
     </physics>

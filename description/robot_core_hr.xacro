@@ -2,10 +2,12 @@
 
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:property name="damping" value="1.0"/>
-  <xacro:property name="friction" value="1000.0"/>
-  <xacro:property name="mu1" value="100.0"/>
-  <xacro:property name="mu2" value="100.0"/>
+  <xacro:property name="damping" value="0.7"/>
+  <xacro:property name="friction" value="100.0"/>
+  <xacro:property name="mu1" value="10000.0"/>
+  <xacro:property name="mu2" value="10000.0"/>
+  <xacro:property name="fdir" value="0 1 0"/>
+  <xacro:property name="minDepth" value="0.002"/>
 
   <link
     name="base_link">
@@ -820,25 +822,32 @@
 
   <gazebo reference="base_link">
     <material>Gazebo/Red</material>
-    <minDepth>0.0002</minDepth>
+    <minDepth>${minDepth}</minDepth>
+	<mu1 value="${mu1}"/>
+    <mu2 value="${mu2}"/>
   </gazebo>
 
   <gazebo reference="fr1_link">
     <material>Gazebo/Black</material>
     <maxVel>1.0</maxVel>
+	<mu1 value="${mu1}"/>
+    <mu2 value="${mu2}"/>
   </gazebo>
 
   <gazebo reference="fr2_link">
     <material>Gazebo/Red</material>
     <maxVel>1.0</maxVel>
+	<mu1 value="${mu1}"/>
+    <mu2 value="${mu2}"/>
   </gazebo>
 
   <gazebo reference="fr3_link">
     <material>Gazebo/Black</material>
     <mu1 value="${mu1}"/>
     <mu2 value="${mu2}"/>
+	<fdir1>${fdir}</fdir1>
     <maxVel>1.0</maxVel>
-    <minDepth>0.0002</minDepth>
+    <minDepth>${minDepth}</minDepth>
     <kp>1000000.0</kp>
     <kd>100.0</kd>
   </gazebo>
@@ -846,19 +855,24 @@
   <gazebo reference="fl1_link">
     <material>Gazebo/Black</material>
     <maxVel>1.0</maxVel>
+	<mu1 value="${mu1}"/>
+    <mu2 value="${mu2}"/>
   </gazebo>
 
   <gazebo reference="fl2_link">
     <material>Gazebo/Red</material>
     <maxVel>1.0</maxVel>
+	<mu1 value="${mu1}"/>
+    <mu2 value="${mu2}"/>
   </gazebo>
 
   <gazebo reference="fl3_link">
     <material>Gazebo/Black</material>
     <mu1 value="${mu1}"/>
     <mu2 value="${mu2}"/>
+	<fdir1>${fdir}</fdir1>
     <maxVel>1.0</maxVel>
-    <minDepth>0.0002</minDepth>
+    <minDepth>${minDepth}</minDepth>
     <kp>1000000.0</kp>
     <kd>100.0</kd>
   </gazebo>
@@ -866,19 +880,24 @@
   <gazebo reference="rr1_link">
     <material>Gazebo/Black</material>
     <maxVel>1.0</maxVel>
+	<mu1 value="${mu1}"/>
+    <mu2 value="${mu2}"/>
   </gazebo>
 
   <gazebo reference="rr2_link">
     <material>Gazebo/Red</material>
     <maxVel>1.0</maxVel>
+	<mu1 value="${mu1}"/>
+    <mu2 value="${mu2}"/>
   </gazebo>
 
   <gazebo reference="rr3_link">
     <material>Gazebo/Black</material>
     <mu1 value="${mu1}"/>
     <mu2 value="${mu2}"/>
+	<fdir1>${fdir}</fdir1>
     <maxVel>1.0</maxVel>
-    <minDepth>0.0002</minDepth>
+    <minDepth>${minDepth}</minDepth>
     <kp>1000000.0</kp>
     <kd>100.0</kd>
   </gazebo>
@@ -886,19 +905,24 @@
   <gazebo reference="rl1_link">
     <material>Gazebo/Black</material>
     <maxVel>1.0</maxVel>
+	<mu1 value="${mu1}"/>
+    <mu2 value="${mu2}"/>
   </gazebo>
 
   <gazebo reference="rl2_link">
     <material>Gazebo/Red</material>
     <maxVel>1.0</maxVel>
+	<mu1 value="${mu1}"/>
+    <mu2 value="${mu2}"/>
   </gazebo>
 
   <gazebo reference="rl3_link">
     <material>Gazebo/Black</material>
     <mu1 value="${mu1}"/>
     <mu2 value="${mu2}"/>
+	<fdir1>${fdir}</fdir1>
     <maxVel>1.0</maxVel>
-    <minDepth>0.0002</minDepth>
+    <minDepth>${minDepth}</minDepth>
     <kp>1000000.0</kp>
     <kd>100.0</kd>
   </gazebo>
@@ -914,6 +938,17 @@
         <param name="min">${-pi/2}</param>
         <param name="max">${pi/2}</param>
       </command_interface>
+      <command_interface name="velocity">
+        <param name="min">-1</param>
+        <param name="max">1</param>
+      </command_interface>
+      <command_interface name="effort">
+       	<param name="min">-0.5</param>
+        <param name="max">0.5</param>
+      </command_interface>
+	  <command_interface name="Kp"/>
+      <command_interface name="Kd"/>
+      <command_interface name="effort_limit"/>
       <state_interface name="position">
         <param name="initial_value">${0}</param>
       </state_interface>
@@ -926,6 +961,17 @@
         <param name="min">${-pi/2}</param>
         <param name="max">${pi/2}</param>
       </command_interface>
+      <command_interface name="velocity">
+        <param name="min">-1</param>
+        <param name="max">1</param>
+      </command_interface>
+      <command_interface name="effort">
+       	<param name="min">-0.5</param>
+        <param name="max">0.5</param>
+      </command_interface>
+	  <command_interface name="Kp"/>
+      <command_interface name="Kd"/>
+      <command_interface name="effort_limit"/>
       <state_interface name="position">
         <param name="initial_value">${0}</param>
       </state_interface>
@@ -938,6 +984,17 @@
         <param name="min">${-pi}</param>
         <param name="max">${pi}</param>
       </command_interface>
+      <command_interface name="velocity">
+        <param name="min">-1</param>
+        <param name="max">1</param>
+      </command_interface>
+      <command_interface name="effort">
+       	<param name="min">-0.5</param>
+        <param name="max">0.5</param>
+      </command_interface>
+	  <command_interface name="Kp"/>
+      <command_interface name="Kd"/>
+      <command_interface name="effort_limit"/>
       <state_interface name="position">
         <param name="initial_value">${0}</param>
       </state_interface>
@@ -950,6 +1007,17 @@
         <param name="min">${-pi/2}</param>
         <param name="max">${pi/2}</param>
       </command_interface>
+      <command_interface name="velocity">
+        <param name="min">-1</param>
+        <param name="max">1</param>
+      </command_interface>
+      <command_interface name="effort">
+       	<param name="min">-0.5</param>
+        <param name="max">0.5</param>
+      </command_interface>
+	  <command_interface name="Kp"/>
+      <command_interface name="Kd"/>
+      <command_interface name="effort_limit"/>
       <state_interface name="position">
         <param name="initial_value">${0}</param>
       </state_interface>
@@ -962,6 +1030,17 @@
         <param name="min">${-pi/2}</param>
         <param name="max">${pi/2}</param>
       </command_interface>
+      <command_interface name="velocity">
+        <param name="min">-1</param>
+        <param name="max">1</param>
+      </command_interface>
+      <command_interface name="effort">
+       	<param name="min">-0.5</param>
+        <param name="max">0.5</param>
+      </command_interface>
+	  <command_interface name="Kp"/>
+      <command_interface name="Kd"/>
+      <command_interface name="effort_limit"/>
       <state_interface name="position">
         <param name="initial_value">${0}</param>
       </state_interface>
@@ -974,6 +1053,17 @@
         <param name="min">${-pi}</param>
         <param name="max">${pi}</param>
       </command_interface>
+      <command_interface name="velocity">
+        <param name="min">-1</param>
+        <param name="max">1</param>
+      </command_interface>
+      <command_interface name="effort">
+       	<param name="min">-0.5</param>
+        <param name="max">0.5</param>
+      </command_interface>
+	  <command_interface name="Kp"/>
+      <command_interface name="Kd"/>
+      <command_interface name="effort_limit"/>
       <state_interface name="position">
         <param name="initial_value">${0}</param>
       </state_interface>
@@ -986,6 +1076,17 @@
         <param name="min">${-pi/2}</param>
         <param name="max">${pi/2}</param>
       </command_interface>
+      <command_interface name="velocity">
+        <param name="min">-1</param>
+        <param name="max">1</param>
+      </command_interface>
+      <command_interface name="effort">
+       	<param name="min">-0.5</param>
+        <param name="max">0.5</param>
+      </command_interface>
+	  <command_interface name="Kp"/>
+      <command_interface name="Kd"/>
+      <command_interface name="effort_limit"/>
       <state_interface name="position">
         <param name="initial_value">${0}</param>
       </state_interface>
@@ -998,6 +1099,17 @@
         <param name="min">${-pi/2}</param>
         <param name="max">${pi/2}</param>
       </command_interface>
+      <command_interface name="velocity">
+        <param name="min">-1</param>
+        <param name="max">1</param>
+      </command_interface>
+      <command_interface name="effort">
+       	<param name="min">-0.5</param>
+        <param name="max">0.5</param>
+      </command_interface>
+	  <command_interface name="Kp"/>
+      <command_interface name="Kd"/>
+      <command_interface name="effort_limit"/>
       <state_interface name="position">
         <param name="initial_value">${0}</param>
       </state_interface>
@@ -1010,6 +1122,17 @@
         <param name="min">${-pi}</param>
         <param name="max">${pi}</param>
       </command_interface>
+      <command_interface name="velocity">
+        <param name="min">-1</param>
+        <param name="max">1</param>
+      </command_interface>
+      <command_interface name="effort">
+       	<param name="min">-0.5</param>
+        <param name="max">0.5</param>
+      </command_interface>
+	  <command_interface name="Kp"/>
+      <command_interface name="Kd"/>
+      <command_interface name="effort_limit"/>
       <state_interface name="position">
         <param name="initial_value">${0}</param>
       </state_interface>
@@ -1022,6 +1145,17 @@
         <param name="min">${-pi/2}</param>
         <param name="max">${pi/2}</param>
       </command_interface>
+      <command_interface name="velocity">
+        <param name="min">-1</param>
+        <param name="max">1</param>
+      </command_interface>
+      <command_interface name="effort">
+       	<param name="min">-0.5</param>
+        <param name="max">0.5</param>
+      </command_interface>
+	  <command_interface name="Kp"/>
+      <command_interface name="Kd"/>
+      <command_interface name="effort_limit"/>
       <state_interface name="position">
         <param name="initial_value">${0}</param>
       </state_interface>
@@ -1034,6 +1168,17 @@
         <param name="min">${-pi/2}</param>
         <param name="max">${pi/2}</param>
       </command_interface>
+      <command_interface name="velocity">
+        <param name="min">-1</param>
+        <param name="max">1</param>
+      </command_interface>
+      <command_interface name="effort">
+       	<param name="min">-0.5</param>
+        <param name="max">0.5</param>
+      </command_interface>
+	  <command_interface name="Kp"/>
+      <command_interface name="Kd"/>
+      <command_interface name="effort_limit"/>
       <state_interface name="position">
         <param name="initial_value">${0}</param>
       </state_interface>
@@ -1046,6 +1191,17 @@
         <param name="min">${-pi}</param>
         <param name="max">${pi}</param>
       </command_interface>
+      <command_interface name="velocity">
+        <param name="min">-1</param>
+        <param name="max">1</param>
+      </command_interface>
+      <command_interface name="effort">
+       	<param name="min">-0.5</param>
+        <param name="max">0.5</param>
+      </command_interface>
+	  <command_interface name="Kp"/>
+      <command_interface name="Kd"/>
+      <command_interface name="effort_limit"/>
       <state_interface name="position">
         <param name="initial_value">${0}</param>
       </state_interface>
@@ -1054,4 +1210,135 @@
     </joint>
   </ros2_control>
 
+  <transmission name="tran1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="fr1_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor1">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>5</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="tran2">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="fr2_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor2">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>5</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="tran3">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="fr3_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor3">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>5</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="tran4">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="fl1_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor4">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>5</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="tran5">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="fl2_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor5">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>5</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="tran6">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="fl3_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor6">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>5</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="tran7">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="rr1_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor7">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>5</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="tran8">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="rr2_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor8">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>5</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="tran9">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="rr3_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor9">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>5</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="tran10">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="rl1_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor10">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>5</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="tran11">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="rl2_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor11">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>5</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="tran12">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="rl3_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor12">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>5</mechanicalReduction>
+    </actuator>
+  </transmission>
 </robot>
