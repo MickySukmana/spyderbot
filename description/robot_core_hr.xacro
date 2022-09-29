@@ -10,6 +10,8 @@
   <xacro:property name="minDepth" value="0.002"/>
   <xacro:property name="kp" value="1000000"/>
   <xacro:property name="kd" value="100"/>
+  <xacro:property name="maxVel" value="3"/>
+
   <link
     name="base_link">
     <inertial>
@@ -830,14 +832,14 @@
 
   <gazebo reference="fr1_link">
     <material>Gazebo/Black</material>
-    <maxVel>1.0</maxVel>
+    <maxVel>${maxVel}</maxVel>
 	<mu1 value="${mu1}"/>
     <mu2 value="${mu2}"/>
   </gazebo>
 
   <gazebo reference="fr2_link">
     <material>Gazebo/Red</material>
-    <maxVel>1.0</maxVel>
+    <maxVel>${maxVel}</maxVel>
 	<mu1 value="${mu1}"/>
     <mu2 value="${mu2}"/>
   </gazebo>
@@ -847,7 +849,7 @@
     <mu1 value="${mu1}"/>
     <mu2 value="${mu2}"/>
 	<fdir1>${fdir}</fdir1>
-    <maxVel>1.0</maxVel>
+    <maxVel>${maxVel}</maxVel>
     <minDepth>${minDepth}</minDepth>
     <kp>${kp}</kp>
     <kd>${kd}</kd>
@@ -855,14 +857,14 @@
 
   <gazebo reference="fl1_link">
     <material>Gazebo/Black</material>
-    <maxVel>1.0</maxVel>
+    <maxVel>${maxVel}</maxVel>
 	<mu1 value="${mu1}"/>
     <mu2 value="${mu2}"/>
   </gazebo>
 
   <gazebo reference="fl2_link">
     <material>Gazebo/Red</material>
-    <maxVel>1.0</maxVel>
+    <maxVel>${maxVel}</maxVel>
 	<mu1 value="${mu1}"/>
     <mu2 value="${mu2}"/>
   </gazebo>
@@ -872,7 +874,7 @@
     <mu1 value="${mu1}"/>
     <mu2 value="${mu2}"/>
 	<fdir1>${fdir}</fdir1>
-    <maxVel>1.0</maxVel>
+    <maxVel>${maxVel}</maxVel>
     <minDepth>${minDepth}</minDepth>
     <kp>${kp}</kp>
     <kd>${kd}</kd>
@@ -880,14 +882,14 @@
 
   <gazebo reference="rr1_link">
     <material>Gazebo/Black</material>
-    <maxVel>1.0</maxVel>
+    <maxVel>${maxVel}</maxVel>
 	<mu1 value="${mu1}"/>
     <mu2 value="${mu2}"/>
   </gazebo>
 
   <gazebo reference="rr2_link">
     <material>Gazebo/Red</material>
-    <maxVel>1.0</maxVel>
+    <maxVel>${maxVel}</maxVel>
 	<mu1 value="${mu1}"/>
     <mu2 value="${mu2}"/>
   </gazebo>
@@ -897,7 +899,7 @@
     <mu1 value="${mu1}"/>
     <mu2 value="${mu2}"/>
 	<fdir1>${fdir}</fdir1>
-    <maxVel>1.0</maxVel>
+    <maxVel>${maxVel}</maxVel>
     <minDepth>${minDepth}</minDepth>
     <kp>${kp}</kp>
     <kd>${kd}</kd>
@@ -905,14 +907,14 @@
 
   <gazebo reference="rl1_link">
     <material>Gazebo/Black</material>
-    <maxVel>1.0</maxVel>
+    <maxVel>${maxVel}</maxVel>
 	<mu1 value="${mu1}"/>
     <mu2 value="${mu2}"/>
   </gazebo>
 
   <gazebo reference="rl2_link">
     <material>Gazebo/Red</material>
-    <maxVel>1.0</maxVel>
+    <maxVel>${maxVel}</maxVel>
 	<mu1 value="${mu1}"/>
     <mu2 value="${mu2}"/>
   </gazebo>
@@ -922,7 +924,7 @@
     <mu1 value="${mu1}"/>
     <mu2 value="${mu2}"/>
 	<fdir1>${fdir}</fdir1>
-    <maxVel>1.0</maxVel>
+    <maxVel>${maxVel}</maxVel>
     <minDepth>${minDepth}</minDepth>
     <kp>${kp}</kp>
     <kd>${kd}</kd>
@@ -939,17 +941,6 @@
         <param name="min">${-pi/2}</param>
         <param name="max">${pi/2}</param>
       </command_interface>
-      <command_interface name="velocity">
-        <param name="min">-1</param>
-        <param name="max">1</param>
-      </command_interface>
-      <command_interface name="effort">
-       	<param name="min">-0.5</param>
-        <param name="max">0.5</param>
-      </command_interface>
-	  <command_interface name="Kp"/>
-      <command_interface name="Kd"/>
-      <command_interface name="effort_limit"/>
       <state_interface name="position">
         <param name="initial_value">${0}</param>
       </state_interface>
@@ -962,17 +953,6 @@
         <param name="min">${-pi/2}</param>
         <param name="max">${pi/2}</param>
       </command_interface>
-      <command_interface name="velocity">
-        <param name="min">-1</param>
-        <param name="max">1</param>
-      </command_interface>
-      <command_interface name="effort">
-       	<param name="min">-0.5</param>
-        <param name="max">0.5</param>
-      </command_interface>
-	  <command_interface name="Kp"/>
-      <command_interface name="Kd"/>
-      <command_interface name="effort_limit"/>
       <state_interface name="position">
         <param name="initial_value">${0}</param>
       </state_interface>
@@ -985,17 +965,6 @@
         <param name="min">${-pi}</param>
         <param name="max">${pi}</param>
       </command_interface>
-      <command_interface name="velocity">
-        <param name="min">-1</param>
-        <param name="max">1</param>
-      </command_interface>
-      <command_interface name="effort">
-       	<param name="min">-0.5</param>
-        <param name="max">0.5</param>
-      </command_interface>
-	  <command_interface name="Kp"/>
-      <command_interface name="Kd"/>
-      <command_interface name="effort_limit"/>
       <state_interface name="position">
         <param name="initial_value">${0}</param>
       </state_interface>
@@ -1008,17 +977,6 @@
         <param name="min">${-pi/2}</param>
         <param name="max">${pi/2}</param>
       </command_interface>
-      <command_interface name="velocity">
-        <param name="min">-1</param>
-        <param name="max">1</param>
-      </command_interface>
-      <command_interface name="effort">
-       	<param name="min">-0.5</param>
-        <param name="max">0.5</param>
-      </command_interface>
-	  <command_interface name="Kp"/>
-      <command_interface name="Kd"/>
-      <command_interface name="effort_limit"/>
       <state_interface name="position">
         <param name="initial_value">${0}</param>
       </state_interface>
@@ -1031,17 +989,6 @@
         <param name="min">${-pi/2}</param>
         <param name="max">${pi/2}</param>
       </command_interface>
-      <command_interface name="velocity">
-        <param name="min">-1</param>
-        <param name="max">1</param>
-      </command_interface>
-      <command_interface name="effort">
-       	<param name="min">-0.5</param>
-        <param name="max">0.5</param>
-      </command_interface>
-	  <command_interface name="Kp"/>
-      <command_interface name="Kd"/>
-      <command_interface name="effort_limit"/>
       <state_interface name="position">
         <param name="initial_value">${0}</param>
       </state_interface>
@@ -1054,17 +1001,6 @@
         <param name="min">${-pi}</param>
         <param name="max">${pi}</param>
       </command_interface>
-      <command_interface name="velocity">
-        <param name="min">-1</param>
-        <param name="max">1</param>
-      </command_interface>
-      <command_interface name="effort">
-       	<param name="min">-0.5</param>
-        <param name="max">0.5</param>
-      </command_interface>
-	  <command_interface name="Kp"/>
-      <command_interface name="Kd"/>
-      <command_interface name="effort_limit"/>
       <state_interface name="position">
         <param name="initial_value">${0}</param>
       </state_interface>
@@ -1077,17 +1013,6 @@
         <param name="min">${-pi/2}</param>
         <param name="max">${pi/2}</param>
       </command_interface>
-      <command_interface name="velocity">
-        <param name="min">-1</param>
-        <param name="max">1</param>
-      </command_interface>
-      <command_interface name="effort">
-       	<param name="min">-0.5</param>
-        <param name="max">0.5</param>
-      </command_interface>
-	  <command_interface name="Kp"/>
-      <command_interface name="Kd"/>
-      <command_interface name="effort_limit"/>
       <state_interface name="position">
         <param name="initial_value">${0}</param>
       </state_interface>
@@ -1100,17 +1025,6 @@
         <param name="min">${-pi/2}</param>
         <param name="max">${pi/2}</param>
       </command_interface>
-      <command_interface name="velocity">
-        <param name="min">-1</param>
-        <param name="max">1</param>
-      </command_interface>
-      <command_interface name="effort">
-       	<param name="min">-0.5</param>
-        <param name="max">0.5</param>
-      </command_interface>
-	  <command_interface name="Kp"/>
-      <command_interface name="Kd"/>
-      <command_interface name="effort_limit"/>
       <state_interface name="position">
         <param name="initial_value">${0}</param>
       </state_interface>
@@ -1123,17 +1037,6 @@
         <param name="min">${-pi}</param>
         <param name="max">${pi}</param>
       </command_interface>
-      <command_interface name="velocity">
-        <param name="min">-1</param>
-        <param name="max">1</param>
-      </command_interface>
-      <command_interface name="effort">
-       	<param name="min">-0.5</param>
-        <param name="max">0.5</param>
-      </command_interface>
-	  <command_interface name="Kp"/>
-      <command_interface name="Kd"/>
-      <command_interface name="effort_limit"/>
       <state_interface name="position">
         <param name="initial_value">${0}</param>
       </state_interface>
@@ -1146,17 +1049,6 @@
         <param name="min">${-pi/2}</param>
         <param name="max">${pi/2}</param>
       </command_interface>
-      <command_interface name="velocity">
-        <param name="min">-1</param>
-        <param name="max">1</param>
-      </command_interface>
-      <command_interface name="effort">
-       	<param name="min">-0.5</param>
-        <param name="max">0.5</param>
-      </command_interface>
-	  <command_interface name="Kp"/>
-      <command_interface name="Kd"/>
-      <command_interface name="effort_limit"/>
       <state_interface name="position">
         <param name="initial_value">${0}</param>
       </state_interface>
@@ -1169,17 +1061,6 @@
         <param name="min">${-pi/2}</param>
         <param name="max">${pi/2}</param>
       </command_interface>
-      <command_interface name="velocity">
-        <param name="min">-1</param>
-        <param name="max">1</param>
-      </command_interface>
-      <command_interface name="effort">
-       	<param name="min">-0.5</param>
-        <param name="max">0.5</param>
-      </command_interface>
-	  <command_interface name="Kp"/>
-      <command_interface name="Kd"/>
-      <command_interface name="effort_limit"/>
       <state_interface name="position">
         <param name="initial_value">${0}</param>
       </state_interface>
@@ -1192,17 +1073,6 @@
         <param name="min">${-pi}</param>
         <param name="max">${pi}</param>
       </command_interface>
-      <command_interface name="velocity">
-        <param name="min">-1</param>
-        <param name="max">1</param>
-      </command_interface>
-      <command_interface name="effort">
-       	<param name="min">-0.5</param>
-        <param name="max">0.5</param>
-      </command_interface>
-	  <command_interface name="Kp"/>
-      <command_interface name="Kd"/>
-      <command_interface name="effort_limit"/>
       <state_interface name="position">
         <param name="initial_value">${0}</param>
       </state_interface>
